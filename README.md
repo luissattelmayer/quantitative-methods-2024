@@ -6,9 +6,9 @@ The structure of the class is as follows
 
 | Session   | Description                    | Course material                                                                                                                             |
 |------------|------------|------------------------------------------------|
-| Session 1 | RStudio Recap & OLS |  |
-| Session 2 | Logistic Regressions           |                                                                              |
-| Session 3 | Multinomial Regression            |                                                                                |
-| Session 4 | Causal Inference        |                                                                           |
-| Session 5 | Time Series                |                                                                             |
-| Session 6 | Text-as-Data                   |                                                                              |
+| Session 1 | RStudio Recap & OLS (01/02 & 08/02) |  |
+| Session 2 | Logistic Regressions (15/02 & 29/02)           |                                                                              |
+| Session 3 | Multinomial Regression (07/03 & 14/03)            |                                                                                |
+| Session 4 | Causal Inference (21/03 & 28/03)        |                                                                           |
+| Session 5 | Time Series (04/04 & 11/04)               |                                                                             |
+| Session 6 | Text-as-Data (18/04 & 25/04)                  |                                                                              |
