@@ -1,0 +1,64 @@
+project:
+  type: book
+
+book:
+  title: "Advanced RStudio Labsessions"
+  subtitle: "Quantitative Methods II"
+  author: "Luis Sattelmayer"
+  date: last-modified
+  repo-url: https://github.com/luissattelmayer/quantitative-methods-2024
+  sidebar:
+    collapse-level: 4
+    pinned: true
+  chapters:
+    - index.qmd
+    - part: "Session 1"
+      chapters:
+        - session1/session1.qmd
+    - part: "Session 2"
+      chapters:
+        - session2/session2.qmd
+    - part: "Session 3"
+      chapters:
+        - session3/session3.qmd
+    - part: "Session 4"
+      chapters:
+        - session4/session4.qmd
+        - session4/session4-2.qmd
+    - part: "Session 5"
+      chapters: 
+        - session5/session5.qmd
+    - part: "Session 6"
+      chapters: 
+        - session6/session6.qmd
+  appendices:
+    - appendix/catchup/r-catchup.qmd
+    - appendix/rmarkdown.qmd
+    - references.qmd
+    - appendix/webscraping.qmd
+    - appendix/quovadis.qmd
+
+bibliography: Meine Bibliothek.bib
+
+format:
+  html:
+    theme: cosmo
+    code-block-background: true
+    code-block-border-left: "#31BAE9"
+    highlight-style: pygments
+    toc: true
+    toc-location: right
+    code-copy: true
+    code-link: true
+    citations-hover: true
+    footnotes-hover: true
+    embed-resources: true
+    self-contained-math: true
+    grid: 
+      sidebar-width: 300px
+      margin-width: 300px
+  pdf:
+    documentclass: scrreprt
+
+editor: source
+

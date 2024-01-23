@@ -1,0 +1,2970 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Advanced RStudio Labsessions},
+  pdfauthor={Luis Sattelmayer},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Advanced RStudio Labsessions}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Quantitative Methods II}
+\author{Luis Sattelmayer}
+\date{2024-01-18}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, frame hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners, boxrule=0pt]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{course-overview}{%
+\chapter*{Course Overview}\label{course-overview}}
+\addcontentsline{toc}{chapter}{Course Overview}
+
+\markboth{Course Overview}{Course Overview}
+
+This repository contains all the course material for the RStudio
+Labsessions for the Spring semester 2024 at the School of Research at
+SciencesPo Paris. The class follows Brenda van Coppenolle's and
+\href{https://www.rovny.org/methods-2-ed}{Jan Rovny's lecture on
+Quantitative Methods II}. Furthermore, the RStudio part of the course is
+a direct continuation of
+\href{https://github.com/malojan/intro_r?tab=readme-ov-file}{Malo Jan's
+RStudio introduction course}. If you feel the need to go back to some
+basics of general R use, data management or visualization, feel free to
+check out his
+\href{https://malo-jn.quarto.pub/introduction-to-r/}{course's website}.
+Rest assured, however, that 1) we will recap plenty of things, 2) make
+slow but steady progress, 3) and come back to the essentials of data
+wrangling again during the semester while constructing statistical
+models.
+
+\hypertarget{course-structure}{%
+\section*{Course Structure}\label{course-structure}}
+\addcontentsline{toc}{section}{Course Structure}
+
+\markright{Course Structure}
+
+In total we will see each other 6 times. The lessons will be structured
+in such a way that I will first present something to you and explain my
+script. Ideally, you will then start coding in groups of 2 and work on
+exercises related to the topic. You can find more information about the
+exercises in the subsection ``course validation''. I will of course be
+there to help you. The rest you solve at home and send me your final
+script. At the beginning of each next meeting we will go through the
+solutions together. Also, I upload my own script before each session, so
+you can use it as a template when solving the tasks and also later, when
+the course is over, as a template for further coding (if you like of
+course\ldots).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Session
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Course material
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Session 1 & RStudio Recap \& OLS & \\
+Session 2 & Logistic Regressions & \\
+Session 3 & Multinomial Regression & \\
+Session 4 & Causal Inference & \\
+Session 5 & Time Series & \\
+Session 6 & Text-as-Data & \\
+\end{longtable}
+
+\hypertarget{course-validation}{%
+\section*{Course Validation}\label{course-validation}}
+\addcontentsline{toc}{section}{Course Validation}
+
+\markright{Course Validation}
+
+In the two weeks between each lecture, you will be given exercises to
+upload to the designated link for each session. The document where you
+write the solutions must be written in Markdown format.
+
+I will grade your solutions to my exercises on a 0 to 5 scale. I would
+like to see that you have done something and hopefully finished the
+exercise. If you are unable to finish the exercise, it is no problem and
+I do understand that not everybody feels as comfortable with R as some
+other people might do. Handing something in is key to getting points!
+This class can be finished by everyone and I do not want you to worry
+about your grade too much. But I would like that you all at least try to
+solve the exercises! Work in groups of \textbf{two} and try to hand in
+something after each session. The precise deadline will be communicated
+in class, the course's
+\href{https://github.com/luissattelmayer/quantitative-methods-2024}{GitHub
+page} and on the Moodle page.
+
+\hypertarget{requirements}{%
+\section*{Requirements}\label{requirements}}
+\addcontentsline{toc}{section}{Requirements}
+
+\markright{Requirements}
+
+You must have downloaded R and RStudio by the beginning of the course
+(you need to install both!) before our sessions. Please let me know if
+you encounter any problems during the installation. Here is a quick
+guide on how to do that:
+\url{https://rstudio-education.github.io/hopr/starting.html}
+
+R and RStudio are both free and open source. You need both of them
+installed in order to operate with the R coding language.
+
+For R, go on the CRAN website and download the file for your respective
+operating system: \url{https://cran.r-project.org/} For RStudio, you
+need to do the same thing by clicking on this link:
+\url{https://posit.co/products/open-source/rstudio/} RStudio has
+received a new name recently (``posit'') but you will still find all the
+necessary steps behind this link under the name of RStudio.
+
+Otherwise, there are few prerequisites except that you must bring your
+computer to the sessions with the required programs installed. I will
+provide you with datasets in each case and I will explain everything
+else in the course.
+
+\hypertarget{help-and-office-hours}{%
+\section*{Help and Office Hours}\label{help-and-office-hours}}
+\addcontentsline{toc}{section}{Help and Office Hours}
+
+\markright{Help and Office Hours}
+
+There are unfortunately no regular office hours. But please do not
+hesitate to reach out, if you have any concerns, questions or feedback
+for me! My inbox is always open. I tend to reply quickly but in the case
+that I have not replied in under 48h, simply send the email again. I
+will not be offended!
+
+Learning how to code and working with RStudio can be a struggle and a
+tough task. I have started out once like you and I will try to keep that
+in mind. Feel free to always ask questions in class or if you see me on
+campus. The most important thing, however, is that you try!
+
+\part{Session 1}
+
+\hypertarget{rstudio-recap-ols}{%
+\chapter{RStudio Recap \& OLS}\label{rstudio-recap-ols}}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+This is a short recap of things you have seen last year and will need
+this year as well. It will refresh your understanding of the linear
+regression method called \emph{ordinary least squares} (OLS). This
+script is supposed to serve as a cheat sheet for you to which you can
+always come back to.
+
+\hypertarget{ols}{%
+\section{OLS}\label{ols}}
+
+As a quick reminder, this is the formula for a basic linear model:
+\(\widehat{Y} = \widehat{\alpha} + \widehat{\beta} X\).
+
+OLS is a certain kind of method of linear model in which we choose the
+line which has the least prediction errors. This means that it is the
+best way to fit a line through all the residuals with the least errors.
+It minimizes the sum of the squared prediction errors
+\(\text{SSE} = \sum_{i=1}^{n} \widehat{\epsilon}_i^2\)
+
+Five main assumptions have to be met to allow us to construct an OLS
+model:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Linearity: Linear relationship between IVs and DVs
+\item
+  No endogeneity between \(y\) and \(x\)
+\item
+  Errors are normally distributed
+\item
+  Homoscedasticity (variance of errors is constant)
+\item
+  No multicolinearity (no linear relationship between the independent
+  variables)
+\end{enumerate}
+
+For this example, I will be working with some test scores of a midterm
+and a final exam which I once had to work through. We are trying to see
+if there is a relationship between the score in the midterm and the
+grade of the final exam. Theoretically speaking, we would expect most of
+the students who did well on the first exam to also get a decent grade
+on the second exam. If our model indicates a statistical significance
+between the independent and the dependent variable and a positive
+coefficient of the former on the latter, this theoretical idea then
+holds true.
+
+\hypertarget{coding-recap}{%
+\section{Coding Recap}\label{coding-recap}}
+
+RStudio works with packages and libraries. There is something called
+Base R, which is the basic infrastructure that R always comes with when
+you install it. The R coding language has a vibrant community of
+contributors who have written their own packages and libraries which you
+can install and use. As Malo does, I am of the \texttt{tidyverse} school
+and mostly code with this package. Here and there, I will, however, try
+to provide you with code that uses Base R or other packages. In coding,
+there are many ways to achieve the same goal -- and I will probably be
+repeating this throughout the semester -- and we always strive for the
+fastest or most automated way. But as long as you find a way that works
+for you, that is fine.
+
+To load the packages, we are going to need:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.1.4     v readr     2.1.4
+v forcats   1.0.0     v stringr   1.5.0
+v ggplot2   3.4.2     v tibble    3.2.1
+v lubridate 1.9.2     v tidyr     1.3.0
+v purrr     1.0.1     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+Next we will import the dataset of grades.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"course\_grades.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 200 Columns: 1
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr (1): midterm|final_exam|final_grade|var1|var2
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+The path which I specify in the \texttt{read\_csv} file is short as this
+quarto document has the same working directory to which the data set is
+also saved. If you, for example, have your dataset on your computer's
+desktop, you can access it via some code like this one:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"\textasciitilde{}/Desktop/course\_grades.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Or if it is within a folder on your desktop:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"\textasciitilde{}/Desktop/folder/course\_grades.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colframe=quarto-callout-important-color-frame, left=2mm, titlerule=0mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, coltitle=black, breakable, colback=white, opacitybacktitle=0.6, rightrule=.15mm, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, arc=.35mm, leftrule=.75mm]
+
+I will be only working within
+\href{https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects}{.Rproj
+files} and so should you. \footnotemark{} This is the only way to ensure
+that your working directory is always the same and that you do not have
+to change the path to your data set every time you open a new RStudio
+session. Further, this is the only way to make sure that other
+collaborators can easily open your project and work with it as well.
+Simply zip the file folder in which you have your code and
+
+\end{tcolorbox}
+
+\footnotetext{Malo's explanation and way of introducing you to RStudio
+projects can be found
+\href{https://malo-jn.quarto.pub/introduction-to-r/session1/0105_import.html}{here}.}
+
+You can also import a dataset directly from the internet. Several ways
+are possible that all lead to the same end result:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dataset\_from\_internet\_1 }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://www.chesdata.eu/s/1999{-}2019\_CHES\_dataset\_meansv3.csv"}\NormalTok{)}
+  
+\CommentTok{\# this method uses the rio package}
+\FunctionTok{library}\NormalTok{(rio)}
+\NormalTok{dataset\_from\_internet\_2 }\OtherTok{\textless{}{-}} \FunctionTok{import}\NormalTok{(}\StringTok{"https://jan{-}rovny.squarespace.com/s/ESS\_FR.dta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Let's take a first look at the data which we just imported:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# tidyverse}
+\FunctionTok{glimpse}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 200
+Columns: 1
+$ `midterm|final_exam|final_grade|var1|var2` <chr> "17.4990613754243|15.641013~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Base R}
+\FunctionTok{str}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+spc_tbl_ [200 x 1] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ midterm|final_exam|final_grade|var1|var2: chr [1:200] "17.4990613754243|15.64101334897|17.63|NA|NA" "17.7446326301825|18.7744366510731|14.14|NA|NA" "13.9316618079058|14.9978584022336|18.2|NA|NA" "10.7068243984724|11.9479428399047|19.85|NA|NA" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   `midterm|final_exam|final_grade|var1|var2` = col_character()
+  .. )
+ - attr(*, "problems")=<externalptr> 
+\end{verbatim}
+
+Something does not look right, this happens quite frequently when saving
+a csv file. It stands for \emph{comma separated value}. R is having
+trouble reading this file since I have saved all grades with commas
+instead of points. Thus, we need to use the \texttt{read\_delim}
+function. Sometimes the \texttt{read\_csv2()} function also does the
+trick. You'd be surprised by how often you encounter this problem. This
+is simply to raise your awareness to it!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"course\_grades.csv"}\NormalTok{, }\AttributeTok{delim =} \StringTok{"|"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 200 Columns: 5
+-- Column specification --------------------------------------------------------
+Delimiter: "|"
+dbl (3): midterm, final_exam, final_grade
+lgl (2): var1, var2
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 200
+Columns: 5
+$ midterm     <dbl> 17.499061, 17.744633, 13.931662, 10.706824, 17.118799, 17.~
+$ final_exam  <dbl> 15.641013, 18.774437, 14.997858, 11.947943, 15.694728, 17.~
+$ final_grade <dbl> 17.63, 14.14, 18.20, 19.85, 14.67, 20.26, 16.90, 13.40, 12~
+$ var1        <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+$ var2        <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+\end{verbatim}
+
+This time, it has been properly imported. But by looking closer at it,
+we can see that there are two columns in the data frame that are empty
+and do not even have a name. We need to get rid of these first. Here are
+several ways of doing this. In coding, many ways lead to the same goal.
+In R, some come with a specific package, some use Base R. It is up to
+you to develop your way of doing things.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# This is how you could do it in Base R}
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ data[, }\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)]}
+
+\CommentTok{\# Using the select() function of the dplyr package you can drop the fourth}
+\CommentTok{\# and fifth columns by their position using the {-} operator and the {-}c() to}
+\CommentTok{\# remove multiple columns}
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ data  }\SpecialCharTok{|\textgreater{}}  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+
+\CommentTok{\# I have stored the mutated data set in the old object; }
+\CommentTok{\# you can also just transform the object itself...}
+\NormalTok{data }\SpecialCharTok{|\textgreater{}} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+
+\CommentTok{\# ... or create a new one}
+\NormalTok{data\_2 }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Now that we have set up our data frame, we can build our OLS model. For
+that, we can simply use the \texttt{lm()} function that comes with Base
+R, it is built into R so to speak. In this function, we specify the data
+and then construct the model by using the tilde
+(\texttt{\textasciitilde{}}) between the dependent variable and the
+independent variable(s). Store your model in an object which can later
+be subject to further treatment and analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(final\_exam }\SpecialCharTok{\textasciitilde{}}\NormalTok{ midterm, }\AttributeTok{data =}\NormalTok{ data)}
+\FunctionTok{summary}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+lm(formula = final_exam ~ midterm, data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.6092 -0.8411 -0.0585  0.8712  3.3086 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  4.62482    0.73212   6.317 1.72e-09 ***
+midterm      0.69027    0.04819  14.325  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.34 on 198 degrees of freedom
+Multiple R-squared:  0.5089,    Adjusted R-squared:  0.5064 
+F-statistic: 205.2 on 1 and 198 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+Since the \texttt{summary()} function only shows us something in our
+console and the output is not very pretty, I encourage you to use the
+\texttt{broom} package for a nicer regression table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{broom}\SpecialCharTok{::}\FunctionTok{tidy}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 2 x 5
+  term        estimate std.error statistic  p.value
+  <chr>          <dbl>     <dbl>     <dbl>    <dbl>
+1 (Intercept)    4.62     0.732       6.32 1.72e- 9
+2 midterm        0.690    0.0482     14.3  2.10e-32
+\end{verbatim}
+
+You can also use the \texttt{stargazer} package in order to export your
+tables to text or LaTeX format which you can then copy to your
+documents.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(stargazer)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Please cite as: 
+\end{verbatim}
+
+\begin{verbatim}
+ Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.
+\end{verbatim}
+
+\begin{verbatim}
+ R package version 5.2.3. https://CRAN.R-project.org/package=stargazer 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{stargazer}\NormalTok{(model, }\AttributeTok{type =} \StringTok{"text"}\NormalTok{, }\AttributeTok{out =} \StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                            final_exam         
+-----------------------------------------------
+midterm                      0.690***          
+                              (0.048)          
+                                               
+Constant                     4.625***          
+                              (0.732)          
+                                               
+-----------------------------------------------
+Observations                    200            
+R2                             0.509           
+Adjusted R2                    0.506           
+Residual Std. Error      1.340 (df = 198)      
+F Statistic          205.196*** (df = 1; 198)  
+===============================================
+Note:               *p<0.1; **p<0.05; ***p<0.01
+\end{verbatim}
+
+\hypertarget{interpretation-of-ols-results}{%
+\section{Interpretation of OLS
+Results}\label{interpretation-of-ols-results}}
+
+How do we interpret this?
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{R2}: Imagine you're trying to draw a line that best fits a
+  bunch of dots (data points) on a graph. The R-squared value is a way
+  to measure how well that line fits the dots. It's a number between 0
+  and 1, where 0 means the line doesn't fit the dots at all and 1 means
+  the line fits the dots perfectly. R-squared tells us how much of the
+  variation in the dependent variable is explained by the variation in
+  the predictor variables.
+\item
+  \textbf{Adjusted R2}: Adjusted R-squared is the same thing as
+  R-squared, but it adjusts for how many predictor variables you have.
+  It's like a better indicator of how well the line fits the dots
+  compared to how many dots you're trying to fit the line to. It always
+  adjusts the R-squared value to be a bit lower so you always want your
+  adjusted R-squared value to be as high as possible.
+\item
+  \textbf{Residual Std. Error}: The residual standard error is a way to
+  measure the average distance between the line you've drawn (your
+  model's predictions) and the actual data points. It's like measuring
+  how far off the line is from the actual dots on the graph. Another way
+  to think about this is like a test where you want to get as many
+  answers correct as possible and if you are off by a lot in your
+  answers, the residual standard error would be high, but if you are
+  only off by a little, the residual standard error would be low. So in
+  summary, lower residual standard error is better, as it means that the
+  model is making predictions that are closer to the true values in the
+  data.
+\item
+  \textbf{F Statistics}: The F-statistic is like a test score that tells
+  you how well your model is doing compared to a really simple model.
+  It's a way to check if the model you've built is any better than just
+  guessing. A large F-statistic means that your model is doing much
+  better than just guessing.
+\end{itemize}
+
+\part{Session 2}
+
+\hypertarget{logistic-regression}{%
+\chapter{Logistic Regression}\label{logistic-regression}}
+
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
+
+You have seen the logic of Logistic Regressions with Professor Rovny in
+the lecture. In this lab session, we will understand how to apply this
+logic to R and how to build a model, interpret and visualize its results
+and how to run some diagnostics on your models. If the time allows it, I
+will also show you how automatize the construction of your model and run
+several logistic regressions for many countries at once.
+
+These are the main points of today's session and script:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Getting used to the European Social Survey
+\item
+  Cleaning data: dropping rows, columns, creating and mutating variables
+\item
+  Building a generalized linear model (\texttt{glm()}); special focus on
+  logit/probit
+\item
+  Extracting and interpreting the coefficients
+\item
+  Visualization of results
+\item
+  (Automatizing the models for several countries)
+\end{enumerate}
+
+\hypertarget{data-management-data-cleaning}{%
+\section{Data Management \& Data
+Cleaning}\label{data-management-data-cleaning}}
+
+As I have mentioned last session, I will try to gradually increase the
+data cleaning part. It is integral to R and operationalizing our
+quantitative questions in models. A properly cleaned data set is worth a
+lot. This time we will work on how to drop values of variables (and thus
+rows of our dataset) which we are either not interested in or, most
+importantly, because they skew our estimations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# these are the packages, I will need for this session}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.1.4     v readr     2.1.4
+v forcats   1.0.0     v stringr   1.5.0
+v ggplot2   3.4.2     v tibble    3.2.1
+v lubridate 1.9.2     v tidyr     1.3.0
+v purrr     1.0.1     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\hypertarget{importing-the-data}{%
+\section{Importing the data}\label{importing-the-data}}
+
+We have seen how to import a dataset. Set a working directory
+(\texttt{setwd()}) of your choice to the path where the data set of this
+lecture resides. You can download this dataset from our Moodle page. I
+have pre-cleaned it a bit. If you were to download this wave of the
+European Social Survey from the Internet, it would be a much bigger data
+set. I encourage you to do this and try to figure out ways to manipulate
+your data but for now, we'll stick to the slightly cleaner version.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# importing the data; if you are unfamiliar with this operator |\textgreater{} , ask me or}
+\CommentTok{\# go to my document "Recap of RStudio" which you can find on Moodle}
+\NormalTok{ess }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"ESS\_10\_fr.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 33351 Columns: 25
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr  (3): name, proddate, cntry
+dbl (22): essround, edition, idno, dweight, pspwght, pweight, anweight, prob...
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+As you can see from the dataset's name, we are going to work with the
+\emph{European Social Survey}. It is the biggest, most comprehensive and
+perhaps also most important survey on social and political life in the
+European Union. It comes in waves of two years and all the European
+states which want to pay for it produce their own data. In fact, the
+French surveys (of which we are going to use the most recent, 10th wave)
+are produced at SciencesPo, at the Centre de Données Socio-Politiques
+(CDSP)!
+
+The ESS is extremely versatile if you need a broad and comprehensive
+data set for both national politics in Europe or to compare European
+countries. Learning how to use it, how to manage and clean the ess waves
+will give you all the instruments to work with almost any data set that
+is ``out there''. Also, some of you might want to use the ESS waves for
+your theses or research papers. There is a lot that can be done with it,
+not only cross-sectionally but also over time. So give it a try :)
+
+Enough advertisement for the ESS, let's get back to wrangling with our
+data! As always, the first step is to inspect (``glimpse'') at our data
+and the data frame's structure. We do this to see if obvious issues
+arise at a first glance.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(ess)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 33,351
+Columns: 25
+$ name     <chr> "ESS10e02_2", "ESS10e02_2", "ESS10e02_2", "ESS10e02_2", "ESS1~
+$ essround <dbl> 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 1~
+$ edition  <dbl> 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2~
+$ proddate <chr> "21.12.2022", "21.12.2022", "21.12.2022", "21.12.2022", "21.1~
+$ idno     <dbl> 10002, 10006, 10009, 10024, 10027, 10048, 10053, 10055, 10059~
+$ cntry    <chr> "BG", "BG", "BG", "BG", "BG", "BG", "BG", "BG", "BG", "BG", "~
+$ dweight  <dbl> 1.9393836, 1.6515952, 0.3150246, 0.6730366, 0.3949991, 0.8889~
+$ pspwght  <dbl> 1.2907065, 1.4308782, 0.1131722, 1.4363747, 0.5848892, 0.6274~
+$ pweight  <dbl> 0.2177165, 0.2177165, 0.2177165, 0.2177165, 0.2177165, 0.2177~
+$ anweight <dbl> 0.28100810, 0.31152576, 0.02463945, 0.31272244, 0.12734002, 0~
+$ prob     <dbl> 0.0003137546, 0.0003684259, 0.0019315645, 0.0009040971, 0.001~
+$ stratum  <dbl> 185, 186, 175, 148, 138, 182, 157, 168, 156, 135, 162, 168, 1~
+$ psu      <dbl> 2429, 2387, 2256, 2105, 2065, 2377, 2169, 2219, 2155, 2053, 2~
+$ polintr  <dbl> 4, 1, 3, 4, 1, 1, 3, 3, 3, 3, 1, 4, 2, 2, 3, 3, 2, 2, 4, 2, 3~
+$ trstplt  <dbl> 3, 6, 3, 0, 0, 0, 5, 1, 2, 0, 5, 4, 7, 5, 2, 2, 2, 2, 0, 3, 0~
+$ trstprt  <dbl> 3, 7, 2, 0, 0, 0, 3, 1, 2, 0, 7, 4, 2, 6, 2, 1, 3, 1, 0, 3, 3~
+$ vote     <dbl> 2, 1, 1, 2, 1, 2, 2, 2, 1, 1, 1, 2, 1, 2, 2, 2, 1, 1, 1, 1, 2~
+$ prtvtefr <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+$ clsprty  <dbl> 2, 1, 1, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 1, 1, 1, 2~
+$ gndr     <dbl> 2, 1, 2, 2, 1, 2, 1, 1, 1, 1, 2, 2, 1, 2, 2, 2, 1, 1, 1, 2, 1~
+$ yrbrn    <dbl> 1945, 1978, 1971, 1970, 1951, 1990, 1981, 1973, 1950, 1950, 1~
+$ eduyrs   <dbl> 12, 16, 16, 11, 17, 12, 12, 12, 11, 3, 12, 12, 15, 15, 19, 11~
+$ emplrel  <dbl> 1, 3, 3, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 3, 2, 1, 1, 1~
+$ uemp12m  <dbl> 6, 2, 1, 6, 6, 6, 1, 6, 6, 6, 6, 6, 6, 6, 6, 2, 6, 6, 6, 6, 2~
+$ uemp5yr  <dbl> 6, 2, 1, 6, 6, 6, 1, 6, 6, 6, 6, 6, 6, 6, 6, 2, 6, 6, 6, 6, 2~
+\end{verbatim}
+
+As we can see, there are many many variables (25 columns) with many many
+observations (33351). Some are quite straight-forward and the name is
+clear (``essround'', ``age'') and some much less. Sometimes we can guess
+the meaning of a variable's name. But most of the time - either because
+guessing is too annoying or because the abbreviation is not making any
+sense - we need to turn to the documentation of the data set. You can
+find the documentation of this specific version of the data set in an
+html-file on Moodle (session 2).
+
+Every (good and serious) data set has some sort of documentation
+somewhere. If not, it is not a good data set and I am even tempted to
+say that we should be careful in using it! The documentation for data
+sets is called a \emph{code book}. Code books are sometimes well crafted
+documents and sometimes just terrible to read. In this class, you will
+be exposed to both kinds of code books in order to familiarize you with
+both.
+
+In fact, this dataframe still contains many variables which we either
+won't need later on or that are simply without any information. Let's
+get rid of these first. This is a step which you can also do later on
+but I believe that it is smart to this right at the beginning in order
+to have a neat and tidy data set from the very beginning.
+
+You can select variables (\texttt{select()}) right at the beginning when
+importing the csv file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ess }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"ESS\_10\_fr.csv"}\NormalTok{)  }\SpecialCharTok{|\textgreater{}}  
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(cntry, polintr, trstplt, trstprt, vote, prtvtefr, clsprty, gndr, yrbrn, eduyrs, emplrel, uemp12m, uemp5yr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 33351 Columns: 25
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr  (3): name, proddate, cntry
+dbl (22): essround, edition, idno, dweight, pspwght, pweight, anweight, prob...
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+However, I am realizing that when looking at the number of rows that my
+file is a bit too large for only one wave and only one country. By
+inspecting the \texttt{ess\$cntry} variable, I can see that I made a
+mistake while downloading the dataset because it contains \emph{all}
+countries of wave 10 instead of just one. We can fix this really easily
+when importing the dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ess }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"ESS\_10\_fr.csv"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(cntry, polintr, trstplt, trstprt, vote, prtvtefr, clsprty, gndr, yrbrn, eduyrs, emplrel, uemp12m, uemp5yr) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(cntry }\SpecialCharTok{==} \StringTok{"FR"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 33351 Columns: 25
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr  (3): name, proddate, cntry
+dbl (22): essround, edition, idno, dweight, pspwght, pweight, anweight, prob...
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+This only leaves us with the values for France!
+
+\hypertarget{cleaning-our-dv}{%
+\subsubsection{2.2 Cleaning our DV}\label{cleaning-our-dv}}
+
+At this point, you should all check out the codebook of this data set
+and take a look at what the values mean. If we take the variable of
+\texttt{ess\$vote} for example, we can see that there are many numeric
+values of which we can make hardly any sense (without guessing and we
+don't do this over here) of what they might stand for.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(ess}\SpecialCharTok{$}\NormalTok{vote) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   1.000   1.799   2.000   8.000 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remember that you can summarize() both dataframes and individual variables}
+\end{Highlighting}
+\end{Shaded}
+
+Or in a table containing the amount of times that a value was given:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(ess}\SpecialCharTok{$}\NormalTok{vote)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+   1    2    3    7    8 
+1025  590  307    9   46 
+\end{verbatim}
+
+Here we can see that the variable vote contains the numeric values of 1
+to 3 and then 7, 8, and 9. If we take a look at the code book, we can
+see what they stand for:
+
+\begin{itemize}
+\tightlist
+\item
+  1 = yes (meaning that the respondent voted)
+\item
+  2 = no (meaning that the respondent did \textbf{not} vote)
+\item
+  3 = not eligible to vote
+\item
+  7 = Refusal
+\item
+  8 = Don't know
+\item
+  9 = No answer
+\end{itemize}
+
+The meaning behind the values of 7, 8, and 9 are quite common and you
+will find them in almost all data sets which were made out of surveys.
+Respondents might not want to give an answer, the answer was not able to
+be read, or they indicated that they did not remember.
+
+\textbf{Spoiler alert: We will work on voter turnout this session}:
+Therefore, we will try to see what makes people vote and what decreases
+the likelihood that they vote at election day. The question of our
+dependent variable will thus be: \emph{Has the respondent voted or
+not?}. Mathematically, this question cannot be answered with a linear
+regression which uses the OLS method as the dependent variable is
+\emph{binary} meaning that 0 = has not voted/1 = has voted. There is
+only two possible outcomes and the variable is not continuous (one of
+the assumptions of an OLS).
+
+But if we were to use the variable on voting turnout as it is right now,
+we would neither have a binary variable nor have a reliable variable as
+it contains values in which we are both not interested in and that will
+skew our estimations strongly. In fact, we cannot do a logistic
+regression (logit) on variables other than binary.
+
+Thus, we first need to transform our dependent variable. We need to get
+rid of unwanted values and transform the 1s and 2s in 0s and 1s.
+
+First we will get rid of the unwanted values in which we are not
+interested.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# dplyr}
+\NormalTok{ess }\OtherTok{\textless{}{-}}\NormalTok{ ess }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{vote }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Here are two other ways to do it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# this one would be in base R}
+\NormalTok{ess[}\SpecialCharTok{!}\NormalTok{vote }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{)]}
+
+\CommentTok{\# using the subset() function, this returns a logical vector which elements of}
+\CommentTok{\# vote are not in the set of values 3, 7, 8, or 9}
+\NormalTok{ess }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(ess, vote }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{) }\SpecialCharTok{==}\NormalTok{ F) }
+
+\CommentTok{\# Alternatively you can use the \%in\% function with ! operator as well like this:}
+\NormalTok{ess }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(ess, }\SpecialCharTok{!}\NormalTok{vote }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Quick check to see if we got rid of all the values:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(ess}\SpecialCharTok{$}\NormalTok{vote)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+   1    2 
+1025  590 
+\end{verbatim}
+
+Perfect, now we just need to transform the ones and twos into zeros and
+ones. This is both out of convention and also to torture you with some
+more data management. Since we are interested in people who do
+\textbf{not} vote, we will code those people as 0 and those who
+\textbf{did} vote as 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ess }\OtherTok{\textless{}{-}}\NormalTok{ ess }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{vote =} \FunctionTok{ifelse}\NormalTok{(vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+The mutate() function is not perfectly intuitive at first sight. Here, I
+use the \texttt{ifelse()} function within \texttt{mutate()} to check if
+vote is equal to 1, if it is then it will be replaced by 0 and if not it
+will be replaced by 1.
+
+In Base R, you could do it like this but I believe that the
+\texttt{mutate()} function is probably the most elegant way of doing
+things\ldots{} It's up to you though:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# only use the ifelse() function}
+\NormalTok{ess}\SpecialCharTok{$}\NormalTok{vote }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(ess}\SpecialCharTok{$}\NormalTok{vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\CommentTok{\# This will leave the value of 1 at 1 and change 2 to 0 for the column vote.}
+\NormalTok{ess}\SpecialCharTok{$}\NormalTok{vote[ess}\SpecialCharTok{$}\NormalTok{vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{ess}\SpecialCharTok{$}\NormalTok{vote[ess}\SpecialCharTok{$}\NormalTok{vote }\SpecialCharTok{==} \DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+We are \emph{this} close to having finished our data management part and
+to being able to finally work on our model. But we still have many many
+variables which are as ``untidy'' as our initial dependent variable was.
+If you know what the values are that you do not want -- and if you are
+\textbf{absolutely certain} that they are not important in other
+variables -- there is a quick way of getting rid of these. How am I
+absolutely certain that I can confidently transform the rows containing
+certain values without losing information? The answer always lies in the
+code book :)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(naniar)}
+\NormalTok{unwanted\_numbers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{66}\NormalTok{, }\DecValTok{77}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{99}\NormalTok{, }\DecValTok{7777}\NormalTok{, }\DecValTok{8888}\NormalTok{, }\DecValTok{9999}\NormalTok{)}
+\NormalTok{ess\_clean }\OtherTok{\textless{}{-}}\NormalTok{ ess }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{replace\_with\_na\_all}\NormalTok{(}\AttributeTok{condition =} \SpecialCharTok{\textasciitilde{}}\NormalTok{.x }\SpecialCharTok{\%in\%}\NormalTok{ unwanted\_numbers)}
+\end{Highlighting}
+\end{Shaded}
+
+Lastly, and I promise that this is the last data wrangling part for
+today and that we will get to our model in a moment, we need to check in
+the code book if specific values that we cannot simply replace over the
+whole data frame are still void of interest.
+
+Our independent variables of interest:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  political interest (polintr): \texttt{c(7:9)} needs to be dropped
+\item
+  trust in politicians (trstplt): no recoding necessary (unwanted values
+  already NAs)
+\item
+  trust in political parties (trstprt): already done
+\item
+  feeling close to a party (clsprty): transform 1/2 into 0/1, drop
+  \texttt{c(7:8)}
+\item
+  gender (gndr): transform into 0/1 and drop the no answers
+\item
+  year born (yrbrn): already done
+\item
+  years of full-time education completed (eduyrs): already done
+\end{enumerate}
+
+We will do every single step at once now using the pipes
+\texttt{\%\textgreater{}\%} (\texttt{tidyverse}) or
+\texttt{\textbar{}\textgreater{}} (Base R) to have a tidy and elegant
+way of doing everything at once:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# specify a string of numbers we are absolutely certain we won\textquotesingle{}t need}
+\NormalTok{unwanted\_numbers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{66}\NormalTok{, }\DecValTok{77}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{99}\NormalTok{, }\DecValTok{7777}\NormalTok{, }\DecValTok{8888}\NormalTok{, }\DecValTok{9999}\NormalTok{)}
+
+\CommentTok{\# make sure to create a new object/data frame; if you don\textquotesingle{}t and re{-}run your code}
+\CommentTok{\# a second time, it will transform some mutated values again!}
+\NormalTok{ess\_final }\OtherTok{\textless{}{-}}\NormalTok{ ess }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# filtering the dependent variable to get rid of any unnecessary rows}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{vote }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{)) }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# using the naniar package, we can transform unwanted values to NAs}
+\NormalTok{  naniar}\SpecialCharTok{::}\FunctionTok{replace\_with\_na\_all}\NormalTok{(}\AttributeTok{condition =} \SpecialCharTok{\textasciitilde{}}\NormalTok{.x }\SpecialCharTok{\%in\%}\NormalTok{ unwanted\_numbers) }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# mutate allows us to transform values within variables into other }
+  \CommentTok{\# values or NAs}
+  \CommentTok{\# vote as binary 1 (voted) \& 0 (abstention)}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{vote =} \FunctionTok{ifelse}\NormalTok{(vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }
+         \CommentTok{\# replace values 7 to 9 with NAs}
+         \AttributeTok{polintr =} \FunctionTok{replace}\NormalTok{(polintr, polintr }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{7}\SpecialCharTok{:}\DecValTok{9}\NormalTok{), }\ConstantTok{NA}\NormalTok{),}
+         \CommentTok{\# replace values 7 to 9 with NAs}
+         \AttributeTok{clsprty =} \FunctionTok{replace}\NormalTok{(clsprty, clsprty }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{7}\SpecialCharTok{:}\DecValTok{9}\NormalTok{), }\ConstantTok{NA}\NormalTok{),}
+         \CommentTok{\# recode the variable to 0 and 1}
+         \AttributeTok{clsprty =} \FunctionTok{recode}\NormalTok{(clsprty, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{2}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{0}\NormalTok{),}
+         \CommentTok{\# same for gender}
+         \AttributeTok{gndr =} \FunctionTok{recode}\NormalTok{(gndr, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{0}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{2}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{constructing-the-logit-model}{%
+\subsection{Constructing the
+logit-model}\label{constructing-the-logit-model}}
+
+If you have made it this far and still bear with me, you have made it to
+the fun part! Specifying the model and running it, literally only takes
+one line of code (or two depending on the amount of independent
+variables). And as you can see, it is really straightforward. The
+\texttt{glm()} function stands for \emph{generalized linear model} and
+comes with Base R.
+
+In Professor Rovny's lecture, we have seen that for a Maximum Likelihood
+Estimation (MLE) you need to know or have an assumption about the
+distribution of your dependent variable. And according to this
+distribution, you need to find the right linear model. If you have a
+binary outcome, your distribution is \emph{binomial}. Within the
+function, we thus specify the family of the distribution as such. Note
+that you could also specify other families such as \emph{Gaussian},
+\emph{poisson}, \emph{gamma} or many more. We are not going to touch
+further on that but the \texttt{glm()} function is quite powerful. We
+can specify, within the \texttt{family\ =} argument, that we are doing a
+logistic regression. This can be done by adding \texttt{link\ =\ logit}
+to the argument. If ever you wanted to be precise and call a
+\emph{probit} or \emph{cauchy} link, it is here that you can specify
+this. The standard, however, is set to \emph{logit}, so we would
+technically not be forced to specify it in this case.
+
+In terms of the model we are building right now, it follows the idea
+that voting behavior (voted/not-voted) is a function of political
+interest, trust in politicians, trust in parties, feeling close to a
+specific party, as well as usual control variables such as gender, age,
+and education:
+
+By no means is this regression just extensive enough to be published. It
+is just one example in which I suspect that political interest, trust in
+politics and politicians, and party affiliation are explanatory factors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{logit }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(vote }\SpecialCharTok{\textasciitilde{}}\NormalTok{ polintr }\SpecialCharTok{+}\NormalTok{ trstplt }\SpecialCharTok{+}\NormalTok{ trstprt }\SpecialCharTok{+}\NormalTok{ clsprty }\SpecialCharTok{+}\NormalTok{ gndr }\SpecialCharTok{+} 
+\NormalTok{               yrbrn }\SpecialCharTok{+}\NormalTok{ eduyrs, }
+             \AttributeTok{data =}\NormalTok{ ess\_final, }
+             \AttributeTok{family =} \FunctionTok{binomial}\NormalTok{(}\AttributeTok{link =}\NormalTok{ logit))}
+\end{Highlighting}
+\end{Shaded}
+
+The object called \texttt{logit} contains our model with its
+coefficients, confidence intervals and many more things that we will
+play with! But as you can see, the actual construction of the model is
+more than simple\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(broom)}
+\FunctionTok{tidy}\NormalTok{(logit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 8 x 5
+  term        estimate std.error statistic  p.value
+  <chr>          <dbl>     <dbl>     <dbl>    <dbl>
+1 (Intercept) 100.       8.69       11.5   1.17e-30
+2 polintr      -0.436    0.0726     -6.01  1.88e- 9
+3 trstplt       0.0829   0.0481      1.72  8.46e- 2
+4 trstprt       0.0344   0.0515      0.668 5.04e- 1
+5 clsprty       0.710    0.130       5.48  4.32e- 8
+6 gndr         -0.0280   0.122      -0.230 8.18e- 1
+7 yrbrn        -0.0510   0.00448   -11.4   4.54e-30
+8 eduyrs        0.113    0.0195      5.82  5.76e- 9
+\end{verbatim}
+
+You have seen both the \texttt{broom} package as well as
+\texttt{stargazer} in the last session.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stargazer}\SpecialCharTok{::}\FunctionTok{stargazer}\NormalTok{(logit, }
+          \AttributeTok{type =} \StringTok{"text"}\NormalTok{,}
+          \AttributeTok{dep.var.labels =} \StringTok{"Voting Behavior"}\NormalTok{,}
+          \AttributeTok{dep.var.caption =} \FunctionTok{c}\NormalTok{(}\StringTok{"Voting turnout; 0 = abstention | 1 = voted"}\NormalTok{),}
+          \AttributeTok{covariate.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Political Interest"}\NormalTok{, }\StringTok{"Trust in Politicians"}\NormalTok{,}
+                             \StringTok{"Trust in Parties"}\NormalTok{, }\StringTok{"Feeling Close to a Party"}\NormalTok{,}
+                             \StringTok{"Gender"}\NormalTok{, }\StringTok{"Year of Birth"}\NormalTok{, }\StringTok{"Education"}\NormalTok{)}
+\NormalTok{          )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+===================================================================
+                         Voting turnout; 0 = abstention | 1 = voted
+                         ------------------------------------------
+                                      Voting Behavior              
+-------------------------------------------------------------------
+Political Interest                       -0.436***                 
+                                          (0.073)                  
+                                                                   
+Trust in Politicians                       0.083*                  
+                                          (0.048)                  
+                                                                   
+Trust in Parties                           0.034                   
+                                          (0.051)                  
+                                                                   
+Feeling Close to a Party                  0.710***                 
+                                          (0.130)                  
+                                                                   
+Gender                                     -0.028                  
+                                          (0.122)                  
+                                                                   
+Year of Birth                            -0.051***                 
+                                          (0.004)                  
+                                                                   
+Education                                 0.113***                 
+                                          (0.019)                  
+                                                                   
+Constant                                 100.041***                
+                                          (8.692)                  
+                                                                   
+-------------------------------------------------------------------
+Observations                               1,546                   
+Log Likelihood                            -828.497                 
+Akaike Inf. Crit.                        1,672.994                 
+===================================================================
+Note:                                   *p<0.1; **p<0.05; ***p<0.01
+\end{verbatim}
+
+\hypertarget{interpretation-of-a-logistic-regression}{%
+\subsection{4. Interpretation of a logistic
+regression}\label{interpretation-of-a-logistic-regression}}
+
+Interpreting the results of a logistic regression can be a bit tricky
+because the predictions are in the form of probabilities, rather than
+actual outcomes. This sounds quite abstract and you are right, it is
+abstract. However, with a proper understanding of the coefficients and
+odds ratios, you can gain insights into the relationship between your
+independent variables and the binary outcome variable even without
+transforming your coefficients into more easily intelligible values.
+
+First the really boring and technical definition: The coefficients of a
+logistic regression model represent the change in the \emph{log-odds} of
+the outcome for a \emph{one-unit change} in the predictor variable
+(holding all other predictors constant). The sign of the coefficient
+indicates the direction of the association: positive coefficients
+indicate that as the predictor variable increases, the odds of the
+outcome also increase, while negative coefficients indicate that as the
+predictor variable increases, the odds of the outcome decrease.
+
+The odds ratio, which can be calculated from the coefficients and we
+will see how that works in a second (exponentation is the key word),
+represents the ratio of the odds of the outcome for a particular value
+of the predictor variable compared to the odds of the outcome for a
+reference value of the predictor variable. An odds ratio greater than 1
+indicates that the predictor variable is positively associated with the
+outcome, while an odds ratio less than 1 indicates that the predictor
+variable is negatively associated with the outcome.
+
+It's also important to keep in mind that a logistic regression model
+makes assumptions about the linearity, independence and homoscedasticity
+of the data, if these assumptions are not met it can affect the model's
+performance and interpretation. We will see the diagnostics of logistic
+regression models again next session.
+
+Is this really dense and did I lose you? It is dense but I hope you bear
+with me because we will see that it becomes much clearer once we apply
+this theory to our model but also once we exponentiate the coefficients
+(reversing the logarithm so to speak) and interpret them as odds-ratios.
+
+But from a first glimpse at our model summary we can see that political
+interest, trust in politicians, closeness to a party, age and education
+are all statistically significant, meaning that their p-value is
+\textless.05! I will not regard any other variable that is not
+statistically significant as you do not usually interpret
+non-significant variables.
+
+Next, we can already say that the association of interest, closeness to
+party and age with voting behavior is negative. This is quite logical
+and makes sense in our case. If we look at the scales on which these
+variables are coded (code book!), we can see that the higher the value
+of the variable, the less interested, close or aged the respondents
+were. Thus, it decreases their likelihood to vote on voting day. Trust
+in politicians is coded the other way around. If I had been a little
+more thorough, it would have been good to put each independent variable
+on the same scale\ldots{} But it means that trust in politicians (in
+fact meaning that they trust them less) raises the likelihood of not
+voting somehow (positive association).
+
+\hypertarget{odds-ratio}{%
+\subsubsection{4.1 Odds-ratio}\label{odds-ratio}}
+
+If you exponentiate the coefficients of your model, you can interpret
+them as odds-ratios. Odds ratios (ORs) are often used in logistic
+regression to describe the relationship between a predictor variable and
+the outcome. ORs are easier to interpret than the coefficients of a
+logistic regression because they provide a measure of the change in the
+odds of the outcome for a unit change in the predictor variable.
+
+An OR greater than 1 indicates that an increase in the predictor
+variable is associated with an increase in the odds of the outcome, and
+an OR less than 1 indicates that an increase in the predictor variable
+is associated with a decrease in the odds of the outcome.
+
+The OR can also be used to compare the odds of the outcome for different
+levels of the predictor variable. For example, an OR of 2 for a
+predictor variable means that the odds of the outcome are twice as high
+for one level of the predictor variable compared to another level.
+Therefore, odds ratios are often preferred to coefficients for
+interpreting the results of a logistic regression, especially in applied
+settings.
+
+I will try to rephrase this and make it more accessible so that
+odds-ratios maybe become more intelligible (they are really nasty
+statistical stuff):
+
+Imagine you're playing a game where you have to guess whether a coin
+will land on heads or tails. If the odds of the coin landing on heads is
+the same as the odds of it landing on tails, then the odds-ratio would
+be 1. This means that the chances of getting heads or tails are the
+same. But if the odds of getting heads is higher than the odds of
+getting tails, then the odds-ratio would be greater than 1. This means
+that the chances of getting heads is higher than the chances of getting
+tails. On the other hand, if the odds of getting tails is higher than
+the odds of getting heads, then the odds-ratio would be less than 1.
+This means that the chances of getting tails is higher than the chances
+of getting heads. In logistic regression, odds-ratio is used to
+understand the relationship between a predictor variable (let's say
+``X'') and an outcome variable (let's say ``Y''). Odds ratio tells you
+how much the odds of Y happening change when X changes.
+
+So, for example, if the odds ratio of X is 2, that means that if X
+happens, the odds of Y happening are twice as high as when X doesn't
+happen. And if the odds ratio of X is 0.5, that means that if X happens,
+the odds of Y happening are half as high as when X doesn't happen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# simply use exp() on the coefficients of the logit}
+\FunctionTok{exp}\NormalTok{(}\FunctionTok{coef}\NormalTok{(logit))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ (Intercept)      polintr      trstplt      trstprt      clsprty         gndr 
+2.800183e+43 6.464189e-01 1.086470e+00 1.034965e+00 2.033083e+00 9.723649e-01 
+       yrbrn       eduyrs 
+9.502474e-01 1.120084e+00 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# here would be a second way of doing it}
+\FunctionTok{exp}\NormalTok{(logit}\SpecialCharTok{$}\NormalTok{coefficients)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ (Intercept)      polintr      trstplt      trstprt      clsprty         gndr 
+2.800183e+43 6.464189e-01 1.086470e+00 1.034965e+00 2.033083e+00 9.723649e-01 
+       yrbrn       eduyrs 
+9.502474e-01 1.120084e+00 
+\end{verbatim}
+
+We can also, and should, add the 95\% confidence intervals (CI). As a
+quick reminder, the CI is a range of values that is likely to contain
+the true value of a parameter (the coefficients of our predictor
+variables in our case). This comes at a certain level of confidence. The
+most commonly used levels (attention, this is only a statistical
+convention!) of confidence are 95\% and sometimes 99\%.
+
+A 95\% CI for a parameter, for example, means that if the logistic
+regression model were fitted to many different samples of data, the true
+value of the parameter would fall within the calculated CI for 95\% of
+those samples.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# most of the times the extra step in the next lines is not necessary and this }
+\CommentTok{\# line of code is enough}
+\FunctionTok{exp}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(}\AttributeTok{OR =} \FunctionTok{coef}\NormalTok{(logit), }\FunctionTok{confint}\NormalTok{(logit)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Waiting for profiling to be done...
+\end{verbatim}
+
+\begin{verbatim}
+                      OR        2.5 %       97.5 %
+(Intercept) 2.800183e+43 1.426529e+36 9.118492e+50
+polintr     6.464189e-01 5.599783e-01 7.445568e-01
+trstplt     1.086470e+00 9.892863e-01 1.194783e+00
+trstprt     1.034965e+00 9.351755e-01 1.144451e+00
+clsprty     2.033083e+00 1.578414e+00 2.623582e+00
+gndr        9.723649e-01 7.653280e-01 1.235391e+00
+yrbrn       9.502474e-01 9.418138e-01 9.585074e-01
+eduyrs      1.120084e+00 1.078523e+00 1.164144e+00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# here, however, we must combine both the exponentiate coefficients with the 95\% confidence intervals}
+\CommentTok{\# the format() function, helps me to show the numbers without the exponentiated }
+\CommentTok{\# "e" and without scientific notation; the round() function within this function gives me values which are rounded on the 5th decimal place.}
+\FunctionTok{format}\NormalTok{(}\FunctionTok{round}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(}\AttributeTok{OR =} \FunctionTok{coef}\NormalTok{(logit), }\FunctionTok{confint}\NormalTok{(logit))), }\DecValTok{5}\NormalTok{), }
+       \AttributeTok{scientific =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Waiting for profiling to be done...
+\end{verbatim}
+
+\begin{verbatim}
+            OR                                                        
+(Intercept) "       28001829913514797465761023437076878514454528.0000"
+polintr     "                                                  0.6464"
+trstplt     "                                                  1.0865"
+trstprt     "                                                  1.0350"
+clsprty     "                                                  2.0331"
+gndr        "                                                  0.9724"
+yrbrn       "                                                  0.9503"
+eduyrs      "                                                  1.1201"
+            2.5 %                                                     
+(Intercept) "              1426529172752230200649154036500529152.0000"
+polintr     "                                                  0.5600"
+trstplt     "                                                  0.9893"
+trstprt     "                                                  0.9352"
+clsprty     "                                                  1.5784"
+gndr        "                                                  0.7653"
+yrbrn       "                                                  0.9418"
+eduyrs      "                                                  1.0785"
+            97.5 %                                                    
+(Intercept) "911849199216411839268345883146918313683541200732160.0000"
+polintr     "                                                  0.7446"
+trstplt     "                                                  1.1948"
+trstprt     "                                                  1.1444"
+clsprty     "                                                  2.6236"
+gndr        "                                                  1.2354"
+yrbrn       "                                                  0.9585"
+eduyrs      "                                                  1.1641"
+\end{verbatim}
+
+This exponentiated value, the \textbf{odds ratio} (OR), now allows us to
+say that for a one unit increase in political interest, for example, the
+odds of voting (versus not voting) decrease. The same goes for the other
+variables.
+
+The last thing about odds-ratio and I hope that this is the easiest to
+interpret, is when you try to make percentages out of it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# the [{-}1] drops the value of the intercept as it is statistically meaningless}
+\CommentTok{\# we put another minus one to get rid of 1 as a threshold for interpreting the}
+\CommentTok{\# odds{-}ratio}
+\CommentTok{\# we multiply by 100 to have percentages}
+\DecValTok{100}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(logit}\SpecialCharTok{$}\NormalTok{coefficients[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{])}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   polintr    trstplt    trstprt    clsprty       gndr      yrbrn     eduyrs 
+-35.358112   8.646994   3.496496 103.308308  -2.763507  -4.975257  12.008377 
+\end{verbatim}
+
+This allows us to say that being politically uninterested decreases the
+\emph{odds} of voting by 35\%. Much more straightforward right?
+
+\hypertarget{predicted-probabilities}{%
+\subsubsection{4.2 Predicted
+Probabilities}\label{predicted-probabilities}}
+
+Predicted probabilities also allow us to understand our logistic
+regression. In logistic regressions, the predicted probabilities and ORs
+are two different ways of describing the relationship between the
+predictor variables and the outcome. Predicted probabilities refer to
+the probability that a specific outcome will occur, given a set of
+predictor variables. They are calculated using the logistic function,
+which maps the linear combination of predictor variables (also known as
+the log-odds) to a value between 0 and 1.
+
+The importance here is that we chose the predictor variables and at
+which values of those we are trying to predict the outcome. This is what
+we call ``holding independent variables constant'' while we calculate
+the predicted probability for a specific independent variable of
+interest.
+
+I will repeat this to make sure that everybody can follow along. With
+the predicted probabilities, we are trying to make out the effect of one
+specific variable of interest on our dependent variable, while we hold
+every other variable at their mean, median in some cases or, in the case
+of a dummy variable, at one of the two possible values. By holding them
+constant, we can be sure to see the singular effect of our independent
+variable of interest.
+
+In our case, let ``feeling close to a party'' (1 = yes; 0 = no) be our
+independent variable of interest. We take our old \texttt{ess\_final}
+dataframe and create a new one. In the \texttt{newdata} dataframe, we
+hold all values at their respective means or put our binary/dummy
+variables to 1. It is an arbitrary choice to put it to one here. We
+could also put it to 0. The only variable that we allow to alternate
+freely to find the predicted probabilities is our variable of interest
+\texttt{clsprty}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# creating the new dataframe newdata with the old dataframe ess\_final}
+\NormalTok{newdata }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(}
+  \CommentTok{\# the initial dataframe contains NAs, we must get rid of them!}
+  \FunctionTok{na.omit}\NormalTok{(ess\_final),}
+  \CommentTok{\# construct a new dataframe}
+  \FunctionTok{data.frame}\NormalTok{(}
+    \CommentTok{\# hold political interest at its mean}
+    \AttributeTok{polintr =} \FunctionTok{mean}\NormalTok{(polintr),}
+    \CommentTok{\# hold trust in politicians at its mean}
+    \AttributeTok{trstplt =} \FunctionTok{mean}\NormalTok{(trstplt),}
+    \CommentTok{\# hold trust in parties at its mean}
+    \AttributeTok{trstprt =} \FunctionTok{mean}\NormalTok{(trstprt),}
+    \CommentTok{\# let it vary on our IV of interest}
+    \AttributeTok{clsprty =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+    \CommentTok{\# gender is set to 1}
+    \AttributeTok{gndr =} \DecValTok{1}\NormalTok{,}
+    \CommentTok{\# mean of age}
+    \AttributeTok{yrbrn =} \FunctionTok{mean}\NormalTok{(yrbrn),}
+    \CommentTok{\# mean of education}
+    \AttributeTok{eduyrs =} \FunctionTok{mean}\NormalTok{(eduyrs)}
+\NormalTok{    ))}
+\end{Highlighting}
+\end{Shaded}
+
+If that all worked out, we can predict the values for this specific
+independent variable by using the Base R \texttt{predict()} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdata}\SpecialCharTok{$}\NormalTok{preds }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(logit, }\AttributeTok{newdata =}\NormalTok{ newdata, }\AttributeTok{type =} \StringTok{"response"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now, let's plot the values:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{ggplot}\NormalTok{(newdata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{clsprty, }\AttributeTok{y=}\NormalTok{preds)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{ylab}\NormalTok{(}\StringTok{"Likelihood of Voting"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{xlab}\NormalTok{(}\StringTok{"Feeling Close to a Party"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session2/session2_files/figure-pdf/unnamed-chunk-23-1.pdf}
+
+}
+
+\end{figure}
+
+We can also do the same thing to see the predicted probability of
+political interest on voting behavior. This is a bit more interesting as
+the variable is not binary like \texttt{ess\$clsprty}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# creating the new dataframe newdata with the old dataframe ess\_final}
+\NormalTok{newdata\_1 }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(}
+  \CommentTok{\# the initial dataframe contains NAs, we must get rid of them!}
+  \FunctionTok{na.omit}\NormalTok{(ess\_final),}
+  \CommentTok{\# construct a new dataframe}
+  \FunctionTok{data.frame}\NormalTok{(}
+    \CommentTok{\# hold political interest at its mean}
+    \AttributeTok{polintr =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{),}
+    \CommentTok{\# hold trust in politicians at its mean}
+    \AttributeTok{trstplt =} \FunctionTok{mean}\NormalTok{(trstplt),}
+    \CommentTok{\# hold trust in parties at its mean}
+    \AttributeTok{trstprt =} \FunctionTok{mean}\NormalTok{(trstprt),}
+    \CommentTok{\# let it vary on our IV of interest}
+    \AttributeTok{clsprty =} \DecValTok{1}\NormalTok{,}
+    \CommentTok{\# gender is set to 1}
+    \AttributeTok{gndr =} \DecValTok{1}\NormalTok{,}
+    \CommentTok{\# mean of age}
+    \AttributeTok{yrbrn =} \FunctionTok{mean}\NormalTok{(yrbrn),}
+    \CommentTok{\# mean of education}
+    \AttributeTok{eduyrs =} \FunctionTok{mean}\NormalTok{(eduyrs)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdata\_1}\SpecialCharTok{$}\NormalTok{preds }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(logit, }\AttributeTok{newdata =}\NormalTok{ newdata\_1, }\AttributeTok{type =} \StringTok{"response"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now, let's plot the values:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(newdata\_1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{polintr, }\AttributeTok{y=}\NormalTok{preds)) }\SpecialCharTok{+}
+   \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{ylab}\NormalTok{(}\StringTok{"predicted probability"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{xlab}\NormalTok{(}\StringTok{"political interest"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session2/session2_files/figure-pdf/unnamed-chunk-26-1.pdf}
+
+}
+
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#combines value data frame created above with predicted probabilities evaluated }
+\CommentTok{\# at the data values}
+\NormalTok{newdata\_1}\OtherTok{\textless{}{-}}\FunctionTok{cbind}\NormalTok{(newdata\_1, }\FunctionTok{predict}\NormalTok{(logit, }\AttributeTok{newdata =}\NormalTok{ newdata\_1, }\AttributeTok{type =} \StringTok{"link"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{TRUE}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdata\_1 }\OtherTok{\textless{}{-}} \FunctionTok{within}\NormalTok{(newdata\_1, \{}
+\NormalTok{  pp }\OtherTok{\textless{}{-}} \FunctionTok{plogis}\NormalTok{(fit)                   }\CommentTok{\# predicted probability }
+\NormalTok{  lb }\OtherTok{\textless{}{-}} \FunctionTok{plogis}\NormalTok{(fit }\SpecialCharTok{{-}}\NormalTok{ (}\FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ se.fit)) }\CommentTok{\# builds lower bound of CI}
+\NormalTok{  ub }\OtherTok{\textless{}{-}} \FunctionTok{plogis}\NormalTok{(fit }\SpecialCharTok{+}\NormalTok{ (}\FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ se.fit)) }\CommentTok{\# builds upper bound of CI}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(newdata\_1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{polintr, }\AttributeTok{y=}\NormalTok{pp)) }\SpecialCharTok{+}  
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{polintr, }\AttributeTok{y=}\NormalTok{pp, }\AttributeTok{color=}\FunctionTok{as.factor}\NormalTok{(gndr))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_ribbon}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin=}\NormalTok{lb, }\AttributeTok{ymax=}\NormalTok{ub), }\AttributeTok{alpha=}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"predicted probability to abstain from voting"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"political interest"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session2/session2_files/figure-pdf/unnamed-chunk-29-1.pdf}
+
+}
+
+\end{figure}
+
+\hypertarget{making-life-easiest}{%
+\subsection{5. Making life easiest}\label{making-life-easiest}}
+
+You are going to hate me if I tell you that all these steps which we
+just computed by hand\ldots{} can be done by using a package. This is
+only 0.01\% of me trying to be mean but mostly because it is extremely
+helpful and \textbf{necessary} to understand what is going on under the
+hood of \emph{predicted probabilities}. The interpretation of logistic
+regressions is tricky and if you do not know what you are computing, it
+is even more complicated.
+
+Working with packages is great, and I am aware that I always encourage
+you to use packages that make your life easier. \textbf{But} and this is
+an important ``but'' we do not always understand what is going on under
+the hood of a package. It is like putting your logistic regression into
+a black box, shaking it really well, and then taking a look at the
+output and putting it on shaky interpretational terms.
+
+But enough of personal defense, as to why I made you suffer through all
+this. Here is my code to do most of the steps at once:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# this package contains everything we need craft predicted probabilities and}
+\CommentTok{\# visualize them as well}
+\FunctionTok{library}\NormalTok{(ggeffects)}
+
+\CommentTok{\# like the predcit() function of Base R, we use ggpredict() and specify }
+\CommentTok{\# our variable of interest }
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{ggpredict}\NormalTok{(logit, }\AttributeTok{terms =} \StringTok{"polintr"}\NormalTok{)}
+
+\CommentTok{\# this is the simplest way of plotting this}
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ x, }\AttributeTok{y =}\NormalTok{ predicted)) }\SpecialCharTok{+}
+  \CommentTok{\# our graph is more or less a line, so geom\_line() applies}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \CommentTok{\# geom\_ribbon() with the values that ggpredict() provided for the confidence}
+  \CommentTok{\# intervals then gives}
+  \CommentTok{\# us a shade around the geom\_()line as CIs}
+  \FunctionTok{geom\_ribbon}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ conf.low, }\AttributeTok{ymax =}\NormalTok{ conf.high), }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session2/session2_files/figure-pdf/unnamed-chunk-30-1.pdf}
+
+}
+
+\end{figure}
+
+And voilà, your output it less than 10 lines of code.
+
+\hypertarget{automatic-regressions-for-several-countries-credits-to-malo-jan}{%
+\subsection{Automatic regressions for several countries (credits to Malo
+Jan)}\label{automatic-regressions-for-several-countries-credits-to-malo-jan}}
+
+This is absolutely only \textbf{optional}. I do not ask you to reproduce
+anything of this at any point in this class. I simply wanted to show you
+what you can do in R and what I mean when I say that automatizing stuff
+\emph{makes life easier}.
+
+With a huge thanks to \textbf{Malo Jan} who gave me the idea and
+inspiration for the code because he thought I should show you this, I
+present you here with a code that does the logistic regression we have
+been doing but on all countries of the ESS at the same time and then
+plots us the odds-ratio of our variable of interest ``political
+interest'', as well as comparing McFadden pseudo R2 (we'll see this term
+next session again).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# library for McFadden pseudo R2}
+\FunctionTok{library}\NormalTok{(pscl)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Classes and Methods for R developed in the
+Political Science Computational Laboratory
+Department of Political Science
+Stanford University
+Simon Jackman
+hurdle and zeroinfl functions by Achim Zeileis
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(broom)}
+
+\NormalTok{country\_model }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df) \{}
+  \FunctionTok{glm}\NormalTok{(vote }\SpecialCharTok{\textasciitilde{}}\NormalTok{ polintr }\SpecialCharTok{+}\NormalTok{ trstplt }\SpecialCharTok{+}\NormalTok{ trstprt }\SpecialCharTok{+}\NormalTok{ clsprty }\SpecialCharTok{+}\NormalTok{ gndr }\SpecialCharTok{+}\NormalTok{ yrbrn }\SpecialCharTok{+}\NormalTok{ eduyrs, }
+      \AttributeTok{family =} \FunctionTok{binomial}\NormalTok{(}\AttributeTok{link =} \StringTok{"logit"}\NormalTok{), }\AttributeTok{data =}\NormalTok{ df)}
+\NormalTok{\}}
+
+\NormalTok{ess }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"ESS\_10\_fr.csv"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(cntry,vote, polintr, trstplt, trstprt, clsprty, gndr, yrbrn, eduyrs)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 33351 Columns: 25
+\end{verbatim}
+
+\begin{verbatim}
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr  (3): name, proddate, cntry
+dbl (22): essround, edition, idno, dweight, pspwght, pweight, anweight, prob...
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ess\_model }\OtherTok{\textless{}{-}}\NormalTok{ ess }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{vote =} \FunctionTok{ifelse}\NormalTok{(vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{filter}\NormalTok{(vote }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{1}\NormalTok{),}
+\NormalTok{           polintr }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{),}
+\NormalTok{           clsprty }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{),}
+\NormalTok{           trstplt }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{), }
+\NormalTok{           trstprt }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{), }
+\NormalTok{           gndr }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{),}
+\NormalTok{           yrbrn }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1900}\SpecialCharTok{:}\DecValTok{2010}\NormalTok{),}
+\NormalTok{           eduyrs }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{50}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{group\_by}\NormalTok{(cntry) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{nest}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{mutate}\NormalTok{(}
+        \AttributeTok{model =} \FunctionTok{map}\NormalTok{(data, country\_model),}
+        \AttributeTok{tidied =} \FunctionTok{map}\NormalTok{(model, }\SpecialCharTok{\textasciitilde{}} \FunctionTok{tidy}\NormalTok{(.x, }\AttributeTok{conf.int =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{exponentiate =} \ConstantTok{TRUE}\NormalTok{)),}
+        \AttributeTok{glanced =} \FunctionTok{map}\NormalTok{(model, glance),}
+        \AttributeTok{augmented =} \FunctionTok{map}\NormalTok{(model, augment),}
+        \AttributeTok{mcfadden =} \FunctionTok{map}\NormalTok{(model, }\SpecialCharTok{\textasciitilde{}} \FunctionTok{pR2}\NormalTok{(.x)[}\DecValTok{4}\NormalTok{])}
+\NormalTok{    )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+fitting null model for pseudo-r2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comparing AICs}
+\FunctionTok{pR2}\NormalTok{(logit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+fitting null model for pseudo-r2
+\end{verbatim}
+
+\begin{verbatim}
+          llh       llhNull            G2      McFadden          r2ML 
+ -828.4972459 -1011.5800658   366.1656399     0.1809870     0.2108881 
+         r2CU 
+    0.2889617 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ess\_model }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{unnest}\NormalTok{(mcfadden) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\FunctionTok{fct\_reorder}\NormalTok{(cntry, mcfadden), mcfadden)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_col}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{scale\_x\_discrete}\NormalTok{(}\StringTok{"Country"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session2/session2_files/figure-pdf/unnamed-chunk-31-1.pdf}
+
+}
+
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comparing coefficients}
+\NormalTok{ess\_model }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{unnest}\NormalTok{(tidied) }\SpecialCharTok{|\textgreater{}}  
+    \FunctionTok{filter}\NormalTok{(term }\SpecialCharTok{==} \StringTok{"polintr"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}
+        \FunctionTok{reorder}\NormalTok{(cntry, estimate),}
+        \AttributeTok{y =} \FunctionTok{exp}\NormalTok{(estimate),}
+        \AttributeTok{color =}\NormalTok{ cntry,}
+        \AttributeTok{ymin =} \FunctionTok{exp}\NormalTok{(conf.low),}
+        \AttributeTok{ymax =} \FunctionTok{exp}\NormalTok{(conf.high)}
+\NormalTok{    )) }\SpecialCharTok{+}
+    \FunctionTok{geom\_errorbar}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{scale\_x\_discrete}\NormalTok{(}\StringTok{"Country"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{ylab}\NormalTok{(}\StringTok{"Odds{-}Ratio of political interest"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{xlab}\NormalTok{(}\StringTok{"Country"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session2/session2_files/figure-pdf/unnamed-chunk-32-1.pdf}
+
+}
+
+\end{figure}
+
+\part{Session 3}
+
+\hypertarget{multinomial-regressions-in-r}{%
+\chapter{Multinomial Regressions in
+R}\label{multinomial-regressions-in-r}}
+
+\hypertarget{the-logic-of-multinomial-logistic-regressions}{%
+\chapter{The Logic of multinomial (logistic)
+Regressions}\label{the-logic-of-multinomial-logistic-regressions}}
+
+In this script, I will show you how to construct a multinomial logistic
+regression in R. For this, we will work on the \emph{European Social
+Survey} (ESS) again. I have chosen four countries out of which you will
+be able to choose one later one when I ask you to work on some
+exercises. For now, I will mainly work on Germany. One of the classic
+applications of multinomial models in political science is the question
+of voting behavior, more precisely vote choice. Last week, we have seen
+the linear model of a logistic regression (logit). It is used in cases
+when our dependent variable (DV) is binary (0 or 1; true or false; yes
+or no) which means that we are not allowed to use OLS. The idea of logit
+can be extended to \emph{unordered categorical or nominal variables}
+with more than \textbf{two} categories, e.g.: Vote choice, Religion,
+Brands\ldots{}
+
+Instead of one equation modelling the log-odds of \(P(X=1)\), we do the
+same thing but for the amount of categories that we have. In fact, this
+means that a multinomial model runs several single logistic regressions
+on something we call a \emph{baseline.} R will choose this baseline to
+which the categorical values of our DV will then relate. But we can also
+change it (this is called releveling). This allows us to make very
+interesting inferences with categorical (or ordinal) variables. If this
+sounds confusing, you should trust me when I tell you that this will
+become more straightforward in a second!
+
+However, this also makes the interpretation of these models a bit
+intricate and opaque at times. Nevertheless, you will see that once you
+have understood the basic idea of a multinomial regression and how to
+interpret the values in accordance to the baseline, it is not much
+different from logistic regressions on binary variables (and in my eyes
+even a bit simpler\ldots). If the logic of logit is not 100\% clear at
+this point, I recommend you go back to last session's script on logit
+and work through my explanations. And if that does not help, try to
+follow this lecture attentively. As I said, the logic is the same, so I
+will repeat myself :) And if it is still unclear, you can always ask in
+class or come see me after the session!
+
+But enough small talk, let's first do some data wrangling which you all
+probably dread at this point\ldots{}
+
+\hypertarget{data-management-for-multinomial-regression}{%
+\chapter{Data Management for Multinomial
+Regression}\label{data-management-for-multinomial-regression}}
+
+As I have said, we will work on voting choice in four different
+countries. I selected Denmark and Germany. Germany I have chosen because
+I was working on this model a couple of months ago and Denmark is for
+fun.
+
+The data which we will use for this session is the 9th round of the ESS
+published in 2018. The goal of this session is to understand predictors
+that tell us more about why people vote for Populist Radical-Right
+Parties, henceforth called \emph{PRRP} (Mudde, 2007). For this I have
+two main hypotheses in mind, as well as some predictors which I know are
+important based on the literature. Finally we also need some control
+variables which we need to control for in almost any regression analysis
+using survey data.
+
+My two hypotheses (\(H_1\) and \(H_2\)) are as follows:
+
+\begin{center}
+$H_1$: Thinking that immigrants enrich a country's culture, decreases the likelihood of voting for PRRPs.
+\end{center}
+
+\begin{center}
+$H_2$: Having less trust in politicians increases the likelihood of voting for PRRPs than voting for other parties.
+\end{center}
+
+Now you might notice two things. First, my hypotheses are relatively
+self-explanatory and you are absolutely right. They are more than that,
+they are perhaps even self-evident. But to this, I would just reply that
+this is supposed to be an easy exercise which is supposed to expose you
+to a multinomial regression and the logic of it. Second, you might see
+that my hypotheses are relatively broadly formulated. This is because I
+would like you, later in class, to choose one of the countries of the
+9th wave of the ESS and build a model yourselves. By giving you broad
+hypotheses, you can do this ;) And again, it is only an exercise. We
+will speak about the good formulation of testable hypotheses again.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# read\_csv from the tidyverse package}
+\NormalTok{ess }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"ESS9e03\_1.csv"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# dplyr allows me to select only those variables I want to use later}
+  \FunctionTok{select}\NormalTok{(cntry, prtvtdfr, prtvede1, prtvtddk, prtvtdpl, }
+\NormalTok{         imueclt, yrbrn, eduyrs, hinctnta, stflife, trstplt, }
+\NormalTok{         blgetmg, gndr) }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# based on the selected variables, I filter the dataframe so that I am only}
+  \CommentTok{\# left with the data for Germany and Denmark}
+  \FunctionTok{filter}\NormalTok{(cntry }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"DE"}\NormalTok{, }\StringTok{"DK"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 49519 Columns: 572
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr  (10): name, proddate, cntry, ctzshipd, cntbrthd, lnghom1, lnghom2, fbrn...
+dbl (562): essround, edition, idno, dweight, pspwght, pweight, anweight, pro...
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+Again, every transformation and mutation of variables which you see
+below is done based on my knowledge of the dataset which I solely gained
+from looking at the code book. The code book can be found on the Moodle
+page (or the ESS' website). It is highly important that you get used to
+reading a code book in general but especially to familiarize yourselves
+with the data which you will use by looking at the way that the
+variables are coded \textbf{in the code book}. There, for example, you
+will find information on the numeric values which are stored in the
+variables \texttt{prtvtdfr}, \texttt{prtvede1}, \texttt{prtvtddk} and
+\texttt{prtvtdpl}. They all stand for a category or, in our case, a
+party name which you can only identify if you open the code book. You
+will see that I only selected some parties in the \texttt{mutate()}
+function below. This is more or less to get rid of those parties that
+did not make it into the national parliament at the last national
+election of each country.
+
+You have seen a similar chunk of code in the last script. See how, once
+you have a code that works for one dataset, you can use it again?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# I specify a string of numbers I am 100 \% certain that I am not going to need}
+\NormalTok{unwanted\_numbers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{66}\NormalTok{, }\DecValTok{77}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{99}\NormalTok{, }\DecValTok{7777}\NormalTok{, }\DecValTok{8888}\NormalTok{, }\DecValTok{9999}\NormalTok{)}
+
+\CommentTok{\# cleaning the dependent variables all over the dataframe}
+\NormalTok{ess\_clean }\OtherTok{\textless{}{-}}\NormalTok{ ess }\SpecialCharTok{|\textgreater{}}
+  \CommentTok{\# getting rid of specified unwanted numbers (transforming them into NAs)}
+\NormalTok{  naniar}\SpecialCharTok{::}\FunctionTok{replace\_with\_na\_all}\NormalTok{(}\AttributeTok{condition =} \SpecialCharTok{\textasciitilde{}}\NormalTok{.x }\SpecialCharTok{\%in\%}\NormalTok{ unwanted\_numbers) }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# get rid of unwanted parties by transforming the numeric values into NAs}
+  \CommentTok{\# repeat it for the party voted variables per country }
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{prtvtdfr =} \FunctionTok{replace}\NormalTok{(prtvtdfr, prtvtdfr }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{12}\SpecialCharTok{:}\DecValTok{99}\NormalTok{), }\ConstantTok{NA}\NormalTok{),}
+           \AttributeTok{prtvede1 =} \FunctionTok{replace}\NormalTok{(prtvede1, }\SpecialCharTok{!}\NormalTok{prtvede1 }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{), }\ConstantTok{NA}\NormalTok{),}
+           \AttributeTok{prtvtddk =} \FunctionTok{replace}\NormalTok{(prtvtddk, }\SpecialCharTok{!}\NormalTok{prtvtddk }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{), }\ConstantTok{NA}\NormalTok{),}
+           \AttributeTok{prtvtdpl =} \FunctionTok{replace}\NormalTok{(prtvtdpl, }\SpecialCharTok{!}\NormalTok{prtvtdpl }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{), }\ConstantTok{NA}\NormalTok{),}
+           \CommentTok{\# get rid of unwanted values indicating no response etc}
+           \AttributeTok{blgetmg =} \FunctionTok{replace}\NormalTok{(blgetmg, }\SpecialCharTok{!}\NormalTok{blgetmg }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{), }\ConstantTok{NA}\NormalTok{),}
+           \CommentTok{\# gender recoded to 1 = 0, 2 = 1 (my personal preference)}
+           \AttributeTok{gndr =} \FunctionTok{recode}\NormalTok{(gndr, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{0}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{2}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+In fact, you could already build the model now and start the multinomial
+regression. However, I add an additional data management step by placing
+the numeric values of the election variable in a new variable called
+\texttt{vote\_de}, where I convert the numeric values to character
+values and at the same time give them the names of the parties. This
+will automatically transform NAs in all the rows in which the country is
+not that in which the person has voted.
+
+But more importantly, once I run the regression, it will display the
+parties' names instead of the numbers. This means that I won't have to
+go back to the code book every time to check what the 1s or 2s
+correspond to.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# this is simple base R creating a new column/variable with character}
+\CommentTok{\# values corresponding to the parties\textquotesingle{} names behind the numeric values}
+\NormalTok{ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de[ess\_clean}\SpecialCharTok{$}\NormalTok{prtvede1}\SpecialCharTok{==}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"CDU/CSU"}
+\NormalTok{ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de[ess\_clean}\SpecialCharTok{$}\NormalTok{prtvede1}\SpecialCharTok{==}\DecValTok{2}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"SPD"}
+\NormalTok{ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de[ess\_clean}\SpecialCharTok{$}\NormalTok{prtvede1}\SpecialCharTok{==}\DecValTok{3}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"Die Linke"}
+\NormalTok{ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de[ess\_clean}\SpecialCharTok{$}\NormalTok{prtvede1}\SpecialCharTok{==}\DecValTok{4}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"Grüne"}
+\NormalTok{ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de[ess\_clean}\SpecialCharTok{$}\NormalTok{prtvede1}\SpecialCharTok{==}\DecValTok{5}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"FDP"}
+\NormalTok{ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de[ess\_clean}\SpecialCharTok{$}\NormalTok{prtvede1}\SpecialCharTok{==}\DecValTok{6}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"AFD"}
+\end{Highlighting}
+\end{Shaded}
+
+Here is a way to mutate all the variables at once. However, this somehow
+creates conflicts with a package used further below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ess\_test }\OtherTok{\textless{}{-}}\NormalTok{ ess }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{vote\_dk =} \FunctionTok{case\_when}\NormalTok{(prtvtddk }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\textasciitilde{}} \StringTok{"Socialdemokratiet"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{2} \SpecialCharTok{\textasciitilde{}} \StringTok{"Det Radikale Venstre"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{3} \SpecialCharTok{\textasciitilde{}} \StringTok{"Det Konservative Folkeparti"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{4} \SpecialCharTok{\textasciitilde{}} \StringTok{"SF Socialistisk Folkeparti"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{5} \SpecialCharTok{\textasciitilde{}} \StringTok{"Dansk Folkeparti"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{6} \SpecialCharTok{\textasciitilde{}} \StringTok{"Kristendemokraterne"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{7} \SpecialCharTok{\textasciitilde{}} \StringTok{"Venstre"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{8} \SpecialCharTok{\textasciitilde{}} \StringTok{"Liberal Alliance"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{9} \SpecialCharTok{\textasciitilde{}} \StringTok{"Enhedslisten"}\NormalTok{,}
+\NormalTok{                        prtvtddk }\SpecialCharTok{==} \DecValTok{10} \SpecialCharTok{\textasciitilde{}} \StringTok{"Alternativet"}\NormalTok{,}
+                        \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \ConstantTok{NA\_character\_}\NormalTok{),}
+    \AttributeTok{vote\_de =} \FunctionTok{case\_when}\NormalTok{(prtvede1 }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\textasciitilde{}} \StringTok{"CDU/CSU"}\NormalTok{,}
+\NormalTok{                        prtvede1 }\SpecialCharTok{==} \DecValTok{2} \SpecialCharTok{\textasciitilde{}} \StringTok{"SPD"}\NormalTok{,}
+\NormalTok{                        prtvede1 }\SpecialCharTok{==} \DecValTok{3} \SpecialCharTok{\textasciitilde{}} \StringTok{"Die Linke"}\NormalTok{,}
+\NormalTok{                        prtvede1 }\SpecialCharTok{==} \DecValTok{4} \SpecialCharTok{\textasciitilde{}} \StringTok{"Grüne"}\NormalTok{,}
+\NormalTok{                        prtvede1 }\SpecialCharTok{==} \DecValTok{5} \SpecialCharTok{\textasciitilde{}} \StringTok{"FDP"}\NormalTok{,}
+\NormalTok{                        prtvede1 }\SpecialCharTok{==} \DecValTok{6} \SpecialCharTok{\textasciitilde{}} \StringTok{"AFD"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{constructing-the-model}{%
+\chapter{Constructing the Model}\label{constructing-the-model}}
+
+Now that the data management process is finally over, we can specify our
+model. For this, you need to install the \texttt{nnet} package and load
+it to your library. Once this is done, we will take the exact same steps
+as you would do for an OLS or logit model. You specify your DV followed
+by a \texttt{\textasciitilde{}} and then you only need to add all your
+IVs. Lastly, you need to specify the data source. \texttt{Hess\ =\ TRUE}
+will provide us with a Hessian matrix that we need for a package later.
+If you don't know what that is\ldots{} that is absolutely fine!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(nnet)}
+\NormalTok{model\_de }\OtherTok{\textless{}{-}} \FunctionTok{multinom}\NormalTok{(vote\_de }\SpecialCharTok{\textasciitilde{}}\NormalTok{ imueclt  }\SpecialCharTok{+}\NormalTok{ stflife }\SpecialCharTok{+}\NormalTok{ trstplt }\SpecialCharTok{+}\NormalTok{ blgetmg }\SpecialCharTok{+} 
+\NormalTok{                    gndr }\SpecialCharTok{+}\NormalTok{ yrbrn }\SpecialCharTok{+}\NormalTok{ eduyrs }\SpecialCharTok{+}\NormalTok{ hinctnta,}
+                     \AttributeTok{data =}\NormalTok{ ess\_clean,}
+                     \AttributeTok{Hess =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# weights:  60 (45 variable)
+initial  value 2512.046776 
+iter  10 value 2043.014063
+iter  20 value 2023.586615
+iter  30 value 1980.080494
+iter  40 value 1938.289705
+iter  50 value 1927.868641
+iter  60 value 1926.043042
+iter  70 value 1925.949503
+iter  80 value 1925.873772
+final  value 1925.814902 
+converged
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model\_dk }\OtherTok{\textless{}{-}} \FunctionTok{multinom}\NormalTok{(vote\_dk }\SpecialCharTok{\textasciitilde{}}\NormalTok{ imueclt  }\SpecialCharTok{+}\NormalTok{ stflife }\SpecialCharTok{+}\NormalTok{ trstplt }\SpecialCharTok{+}\NormalTok{ blgetmg }\SpecialCharTok{+}\NormalTok{ gndr }\SpecialCharTok{+}
+\NormalTok{                     yrbrn }\SpecialCharTok{+}\NormalTok{ eduyrs }\SpecialCharTok{+}\NormalTok{ hinctnta,}
+                     \AttributeTok{data =}\NormalTok{ ess\_test,}
+                     \AttributeTok{Hess =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# weights:  100 (81 variable)
+initial  value 2795.338303 
+iter  10 value 2506.234222
+iter  20 value 2461.859464
+iter  30 value 2453.873307
+iter  40 value 2432.673849
+iter  50 value 2358.985280
+iter  60 value 2304.034636
+iter  70 value 2276.886671
+iter  80 value 2259.889542
+iter  90 value 2249.913529
+iter 100 value 2246.110042
+final  value 2246.110042 
+stopped after 100 iterations
+\end{verbatim}
+
+\hypertarget{re-leveling-your-dv}{%
+\subsection{Re-leveling your DV}\label{re-leveling-your-dv}}
+
+In my case, the German PRRP is called \emph{Alternative für Deutschland}
+meaning it starts with an ``A''. R tends to take the alphabetical order
+as a criterion for the baseline meaning that the baseline for your
+multinomial model is chosen based on the party which comes first in
+alphabetical order. Depending on what you want to show, you might want
+to change the baseline which we can do with the \texttt{relevel()}
+function. Let's say we are not interested in vote choice regarding the
+PRRP but conservative parties and thus want to put the German Christian
+conservative party, the CDU/CSU, as a baseline. Here is how we could do
+this in R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# you need to specify your DV as a factor for this; further, the ref must }
+\CommentTok{\# contain the exact character label of the party}
+\NormalTok{ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de }\OtherTok{\textless{}{-}} \FunctionTok{relevel}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(ess\_clean}\SpecialCharTok{$}\NormalTok{vote\_de), }\AttributeTok{ref =} \StringTok{"CDU/CSU"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{interpreting-a-multinomial-model}{%
+\chapter{Interpreting a Multinomial
+Model}\label{interpreting-a-multinomial-model}}
+
+You already know that I like the \texttt{stargazer} package for
+displaying a regression table. This time I paid attention to what level
+of statistical significance leads to a star (*). I changed it so that,
+like in the \texttt{summary()} function, p-values below 0.05 will be
+used as the minimum level of statistical significance instead of 0.1.
+\texttt{dep.var.caption\ =} allows be to specify a caption for our DV
+and we can use our own labels for the IVs instead of the variables'
+names by using the \texttt{covariate.labels\ =} argument.
+
+I have specified in the first chunk of code which arguments concern the
+generated output in LaTeX. I still recommend you start learning how to
+write papers in LaTeX. This is just to say that some arguments are not
+useful at all when \texttt{type\ =\ "text}. But LaTeX generates more
+beautiful tables ;)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# specifying the object in which the model is stored}
+\NormalTok{stargazer}\SpecialCharTok{::}\FunctionTok{stargazer}\NormalTok{(model\_de,}
+                     \CommentTok{\# adding a title to the table}
+                     \AttributeTok{title =} \StringTok{"Multinomial Regression Results Germany"}\NormalTok{,}
+                     \CommentTok{\# the type of the output, it is going to be in LaTeX}
+                     \AttributeTok{type =} \StringTok{"latex"}\NormalTok{,}
+                     \CommentTok{\# some LaTeX information}
+                     \AttributeTok{float =} \ConstantTok{TRUE}\NormalTok{,}
+                     \CommentTok{\# font size of the LaTeX table}
+                     \AttributeTok{font.size =} \StringTok{"small"}\NormalTok{, }
+                     \CommentTok{\# column width in final LaTeX table}
+                     \AttributeTok{column.sep.width =} \StringTok{"{-}10pt"}\NormalTok{,}
+                     \CommentTok{\# specifying the p{-}values which lead to stars in our}
+                     \CommentTok{\# table}
+                     \AttributeTok{star.cutoffs =} \FunctionTok{c}\NormalTok{(.}\DecValTok{05}\NormalTok{, .}\DecValTok{01}\NormalTok{, .}\DecValTok{001}\NormalTok{), }
+                     \CommentTok{\# caption for the DV}
+                     \AttributeTok{dep.var.caption =} \FunctionTok{c}\NormalTok{(}\StringTok{"Vote Choice"}\NormalTok{),}
+                     \CommentTok{\# labels for our IVs; must be in the same order as our}
+                     \CommentTok{\# IVs in the initial model}
+                     \AttributeTok{covariate.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Positivity Immigration"}\NormalTok{,}
+                             \StringTok{"Satisfaction w/ Life"}\NormalTok{, }\StringTok{"Trust in Politicians"}\NormalTok{,}
+                             \StringTok{"Ethnic Minority"}\NormalTok{, }\StringTok{"Gender"}\NormalTok{, }\StringTok{"Age"}\NormalTok{, }\StringTok{"Education"}\NormalTok{, }
+                             \StringTok{"Income"}\NormalTok{))}
+
+\CommentTok{\# the annotations of the above model would be the same for this model}
+\NormalTok{stargazer}\SpecialCharTok{::}\FunctionTok{stargazer}\NormalTok{(model\_dk,}
+                     \AttributeTok{title =} \StringTok{"Multinomial Regression Results Denmark"}\NormalTok{,}
+                     \AttributeTok{type =} \StringTok{"latex"}\NormalTok{,}
+                     \AttributeTok{float =} \ConstantTok{TRUE}\NormalTok{,}
+                     \AttributeTok{font.size =} \StringTok{"tiny"}\NormalTok{, }
+                     \AttributeTok{star.cutoffs =} \FunctionTok{c}\NormalTok{(.}\DecValTok{05}\NormalTok{, .}\DecValTok{01}\NormalTok{, .}\DecValTok{001}\NormalTok{), }
+                     \AttributeTok{dep.var.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Germany"}\NormalTok{),}
+                     \AttributeTok{dep.var.caption =} \FunctionTok{c}\NormalTok{(}\StringTok{"Vote Choice"}\NormalTok{),}
+                     \AttributeTok{covariate.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Positivity Immigration"}\NormalTok{,}
+                             \StringTok{"Satisfaction w/ Life"}\NormalTok{, }\StringTok{"Trust in Politicians"}\NormalTok{,}
+                             \StringTok{"Ethnic Minority"}\NormalTok{, }\StringTok{"Gender"}\NormalTok{, }\StringTok{"Age"}\NormalTok{, }\StringTok{"Education"}\NormalTok{, }
+                             \StringTok{"Income"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+The output of these \texttt{stargazer} table can be found on the next
+page. They are in LaTeX format! The format of the regression table on
+our Danish model is not ideal since the names of the parties are quite
+long and overlap. Blame this on my lack of knowledge of abbreviations of
+Danish parties\ldots{}
+
+\begin{table}[H] \centering 
+  \caption{Multinomial Regression Results Germany} 
+  \label{} 
+\small 
+\begin{tabular}{@{\extracolsep{-10pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{Vote Choice in Germany} \\ 
+\cline{2-6} 
+\\[-1.8ex] & CDU/CSU & Die Linke & FDP & Grüne & SPD \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ Positivity Immigration & 0.393$^{***}$ & 0.503$^{***}$ & 0.289$^{***}$ & 0.504$^{***}$ & 0.442$^{***}$ \\ 
+  & (0.058) & (0.062) & (0.070) & (0.061) & (0.059) \\ 
+  & & & & & \\ 
+ Satisfaction w/ Life & 0.065 & $-$0.185$^{*}$ & 0.139 & $-$0.019 & $-$0.076 \\ 
+  & (0.061) & (0.074) & (0.087) & (0.071) & (0.062) \\ 
+  & & & & & \\ 
+ Trust in Politicians & 0.479$^{***}$ & 0.466$^{***}$ & 0.443$^{***}$ & 0.491$^{***}$ & 0.434$^{***}$ \\ 
+  & (0.072) & (0.076) & (0.082) & (0.073) & (0.074) \\ 
+  & & & & & \\ 
+ Ethnic Minority & $-$0.533$^{***}$ & $-$0.997$^{***}$ & $-$1.375$^{***}$ & $-$0.499$^{***}$ & $-$0.959$^{***}$ \\ 
+  & (0.117) & (0.003) & (0.003) & (0.083) & (0.012) \\ 
+  & & & & & \\ 
+ Gender & 0.763$^{***}$ & 0.311$^{**}$ & 0.493$^{***}$ & 0.969$^{***}$ & 0.400$^{***}$ \\ 
+  & (0.096) & (0.106) & (0.073) & (0.128) & (0.107) \\ 
+  & & & & & \\ 
+ Age & $-$0.010$^{***}$ & 0.010$^{***}$ & $-$0.004$^{***}$ & 0.009$^{***}$ & $-$0.014$^{***}$ \\ 
+  & (0.0004) & (0.0005) & (0.001) & (0.0005) & (0.0004) \\ 
+  & & & & & \\ 
+ Education & 0.038 & 0.081 & 0.066 & 0.124$^{*}$ & 0.073 \\ 
+  & (0.048) & (0.054) & (0.055) & (0.050) & (0.048) \\ 
+  & & & & & \\ 
+ Income & 0.007 & 0.004 & $-$0.005 & 0.006 & 0.003 \\ 
+  & (0.008) & (0.009) & (0.010) & (0.008) & (0.008) \\ 
+  & & & & & \\ 
+ Constant & 17.387$^{***}$ & $-$21.926$^{***}$ & 4.670$^{***}$ & $-$23.693$^{***}$ & 27.484$^{***}$ \\ 
+  & (0.0002) & (0.00003) & (0.0001) & (0.0001) & (0.0001) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Akaike Inf. Crit. & 4,383.610 & 4,383.610 & 4,383.610 & 4,383.610 & 4,383.610 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table}
+
+\blandscape
+\begin{table}[H] \centering 
+  \caption{Multinomial Regression Results} 
+  \label{} 
+\tiny 
+\begin{tabular}{@{\extracolsep{-15pt}}lccccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{9}{c}{Vote Choice in Denmark} \\ 
+\cline{2-10} 
+\\[-1.8ex] & Socialdemokratiet & Det Konservative Folkeparti & Det Radikale Venstre & Enhedslisten & Kristendemokraterne & Liberal Alliance & SF Socialistisk Folkeparti & Socialdemokratiet & Venstre \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9)\\ 
+\hline \\[-1.8ex] 
+ Positivity Immigration & $-$0.069 & $-$0.091 & 0.002 & 0.008 & $-$0.003 & 0.023 & 0.013 & 0.010 & $-$0.011 \\ 
+  & (0.037) & (0.061) & (0.020) & (0.018) & (0.030) & (0.018) & (0.018) & (0.016) & (0.018) \\ 
+  & & & & & & & & & \\ 
+ Satisfaction w/ Life & 0.063 & 0.057 & 0.077$^{*}$ & $-$0.060 & 0.006 & 0.002 & 0.082$^{*}$ & 0.043 & 0.069 \\ 
+  & (0.038) & (0.043) & (0.038) & (0.070) & (0.143) & (0.094) & (0.037) & (0.040) & (0.037) \\ 
+  & & & & & & & & & \\ 
+ Trust in Politicians & $-$0.008 & 0.257$^{**}$ & 0.294$^{***}$ & 0.025 & 0.237$^{*}$ & 0.192$^{*}$ & 0.283$^{***}$ & 0.232$^{***}$ & 0.284$^{***}$ \\ 
+  & (0.074) & (0.079) & (0.068) & (0.082) & (0.111) & (0.098) & (0.069) & (0.067) & (0.067) \\ 
+  & & & & & & & & & \\ 
+ Ethnic Minority & $-$0.323$^{***}$ & $-$0.176$^{***}$ & $-$0.895$^{***}$ & $-$1.237$^{***}$ & $-$0.081$^{***}$ & $-$0.368$^{***}$ & $-$0.805$^{***}$ & $-$0.070 & $-$0.456$^{***}$ \\ 
+  & (0.032) & (0.017) & (0.003) & (0.004) & (0.009) & (0.013) & (0.005) & (0.164) & (0.045) \\ 
+  & & & & & & & & & \\ 
+ Gender & $-$0.684$^{***}$ & $-$0.442$^{***}$ & $-$0.632$^{***}$ & $-$0.106 & $-$0.556$^{***}$ & $-$0.741$^{***}$ & 0.136 & $-$0.337$^{**}$ & $-$0.382$^{**}$ \\ 
+  & (0.162) & (0.040) & (0.102) & (0.195) & (0.006) & (0.025) & (0.108) & (0.123) & (0.128) \\ 
+  & & & & & & & & & \\ 
+ Age & $-$0.022$^{***}$ & $-$0.007$^{***}$ & 0.012$^{***}$ & 0.004$^{***}$ & $-$0.003$^{***}$ & 0.037$^{***}$ & $-$0.003$^{***}$ & $-$0.018$^{***}$ & $-$0.021$^{***}$ \\ 
+  & (0.0003) & (0.0004) & (0.0003) & (0.0004) & (0.001) & (0.001) & (0.0003) & (0.0004) & (0.0003) \\ 
+  & & & & & & & & & \\ 
+ Education & $-$0.112$^{***}$ & $-$0.010 & $-$0.004 & $-$0.028 & 0.013 & $-$0.021 & $-$0.005 & $-$0.076$^{***}$ & $-$0.067$^{***}$ \\ 
+  & (0.023) & (0.023) & (0.021) & (0.023) & (0.025) & (0.027) & (0.020) & (0.020) & (0.020) \\ 
+  & & & & & & & & & \\ 
+ Income & 0.008 & 0.014 & 0.009 & 0.003 & 0.0005 & 0.008 & 0.008 & 0.007 & 0.010 \\ 
+  & (0.009) & (0.010) & (0.010) & (0.010) & (0.018) & (0.011) & (0.010) & (0.009) & (0.009) \\ 
+  & & & & & & & & & \\ 
+ Constant & 46.812$^{***}$ & 14.007$^{***}$ & $-$22.189$^{***}$ & $-$4.006$^{***}$ & 4.506$^{***}$ & $-$73.029$^{***}$ & 5.081$^{***}$ & 37.155$^{***}$ & 43.828$^{***}$ \\ 
+  & (0.0001) & (0.00004) & (0.00002) & (0.0001) & (0.0001) & (0.0001) & (0.00003) & (0.0001) & (0.0001) \\ 
+  & & & & & & & & & \\ 
+\hline \\[-1.8ex] 
+Akaike Inf. Crit. & 4,654.219 & 4,654.219 & 4,654.219 & 4,654.219 & 4,654.219 & 4,654.219 & 4,654.219 & 4,654.219 & 4,654.219 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{9}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table} 
+\elandscape
+
+\hypertarget{interpreting-a-multinomial-regression-table}{%
+\chapter{Interpreting a Multinomial Regression
+Table}\label{interpreting-a-multinomial-regression-table}}
+
+We can see that many many things are going on in this regression table.
+Let us try to analyze our results step by step.
+
+First of all, we can see that we have many variables that are
+statistically significant (lots of stars yay!). This is always a good
+sign. Note also that the baseline was the party \emph{AFD}. You can see
+this based on the fact that the category AFD which our DV can take on is
+not given in our table. This means that whenever we see the results
+where the DV is one of the parties, R has calculated the coefficients
+based on the logic that the respondent would have voter for
+\emph{either} the party in the dependent variable \emph{or} the party of
+the baseline, which in our case is that of the AFD. In more mathematical
+terms these are several single logistic regressions always with regards
+to the baseline AFD which are then aggregated to a multinomial
+regression. And to be slightly more mathematical, this means our DV is
+technically: \(1 = DV\) and then \(0 = AFD\).
+
+Therefore, we can interpret the results exactly like we would for a
+logistic regression. Last week it was about the likelihood of voting
+abstention, this week it is the likelihood of voting for the CDU/CSU
+instead of the AFD, or voting for the SPD instead of the AFD, or voting
+for Die Linke instead of the AFD, and so on. You get the idea hopefully.
+
+Remember that these are the coefficients of logistic regressions. We
+cannot interpret them linearily like in OLS. For now, the regression
+table tells us something about the statistical significance of our
+predictors and the direction of association: whether or not a
+statistically significant predictor increases or decreases the
+likelihood of voting for either or.
+
+\hypertarget{the-hypotheses}{%
+\subsection{The Hypotheses}\label{the-hypotheses}}
+
+As a reminder, these were my initial (frankly also bad) hypotheses:
+
+\begin{center}
+$H_1$: Thinking that immigrants enrich a country's culture decreases the likelihood of voting for PRRPs.
+\end{center}
+
+\begin{center}
+$H_2$: Having less trust in politicians increases the likelihood of voting for PRRPs than voting for other parties.
+\end{center}
+
+I am now interested to see the effect of positivity toward migration and
+trust in politicians \emph{on} the vote choice for each party
+\emph{instead} of the AFD. What we can see is that a one-unit increase
+in positive attitudes toward migration (thinking that immigrants
+culturally enrich the respondents' country) raises the likelihood for
+voting for all other parties \emph{instead} of voting for the AFD. In
+the case of the first column, in which the vote was either for the
+CDU/CSU or the AFD, a one unit increase in stances on immigration
+results in a higher likelihood of voting of voting for the CDU/CSU than
+the AFD.
+
+If we now turn to trust in politicians and this variable's effect on
+vote choice for the different German parties, we can see that overall
+there is a statistically significant a positive association with having
+more trust in politicians and also voting for other parties than the
+AFD. In return, this also means that low trust in politicians raises the
+likelihood of voting for the AFD.
+
+You could obviously exponentiate the values that we have here in order
+to get the odds-ratio. But I have tortured you enough with ORs and
+predicted probabilities are much more intuitively interpreted.
+Therefore, we will calculate them in the next section.
+
+\hypertarget{predicted-probabilities-1}{%
+\chapter{Predicted Probabilities}\label{predicted-probabilities-1}}
+
+You all hopefully still remember the idea of \emph{predicted
+probabilities} which we have already seen last time for a simply
+logistic regression. You hold all but one predictor variables (IVs)
+constant at their mean or another logical value. The one predictor which
+you do not hold constant you let alternate/vary to estimate the
+predicted probabilities of this specific variable of interest and the
+different values it can take on (on your dependent variable). The
+predicted probabilities can be tricky to code manually and we are not
+going to do this again but we will use a package that can do this for
+us.
+
+The package is called \texttt{MNLpred} and allows us to specify the
+variable of interest. This packages makes draws from our posterior
+distribution (hello Bayesian statistics) and simulates our coefficients
+n-times (we tell it how many times to run the simulation) and then takes
+the mean value of all of our simulations.
+\footnote{Since R will simulate many many things at the same time, your knit might take more time than usually. This is perfectly normal.}
+This way, we end up more or less with the same predicted probabilities
+that we have seen last week. These are much more easily interpreted than
+relative risk ratios (the odds-ratios of multinomial regressions) and
+can be plotted.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(MNLpred)}
+\NormalTok{pred1 }\OtherTok{\textless{}{-}} \FunctionTok{mnl\_pred\_ova}\NormalTok{(}\AttributeTok{model =}\NormalTok{ model\_de,}
+                      \CommentTok{\# specify data source}
+                      \AttributeTok{data =}\NormalTok{ ess\_clean,}
+                      \CommentTok{\# specify predictor of interest}
+                      \AttributeTok{x =} \StringTok{"imueclt"}\NormalTok{,}
+                      \CommentTok{\# the steps which should be used for the simulated prediction}
+                      \AttributeTok{by =} \DecValTok{1}\NormalTok{,}
+                      \CommentTok{\# this would be for replicability, we do not care about it}
+                      \CommentTok{\# here }
+                      \AttributeTok{seed =} \StringTok{"random"}\NormalTok{,}
+                      \CommentTok{\# number of simulations}
+                      \AttributeTok{nsim =} \DecValTok{100}\NormalTok{,}
+                      \CommentTok{\# confidence intervals}
+                      \AttributeTok{probs =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Multiplying values with simulated estimates:
+================================================================================
+Applying link function:
+================================================================================
+Done!
+\end{verbatim}
+
+The \texttt{pred1} object now contains the simulated means for each
+party at each step of our predictor of interest meaning that there are
+10 simulated mean values for each value that \texttt{imueclt} can take
+on for each party:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred1}\SpecialCharTok{$}\NormalTok{plotdata }\SpecialCharTok{|\textgreater{}} \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  imueclt vote_de       mean      lower      upper
+1       0 CDU/CSU 0.24457100 0.18318269 0.31936256
+2       1 CDU/CSU 0.18960102 0.14730663 0.24322513
+3       2 CDU/CSU 0.14223538 0.11451094 0.17458069
+4       3 CDU/CSU 0.10315863 0.08632080 0.12305653
+5       4 CDU/CSU 0.07234026 0.06039988 0.08816299
+6       5 CDU/CSU 0.04910061 0.03833362 0.06253886
+\end{verbatim}
+
+Let's simulate the exact same thing for our second hypothesis regarding
+the trust in politicians:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred2 }\OtherTok{\textless{}{-}} \FunctionTok{mnl\_pred\_ova}\NormalTok{(}\AttributeTok{model =}\NormalTok{ model\_de,}
+                      \AttributeTok{data =}\NormalTok{ ess\_clean,}
+                      \AttributeTok{x =} \StringTok{"trstplt"}\NormalTok{,}
+                      \AttributeTok{by =} \DecValTok{1}\NormalTok{,}
+                      \AttributeTok{seed =} \StringTok{"random"}\NormalTok{,}
+                      \AttributeTok{nsim =} \DecValTok{100}\NormalTok{,}
+                      \AttributeTok{probs =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Multiplying values with simulated estimates:
+================================================================================
+Applying link function:
+================================================================================
+Done!
+\end{verbatim}
+
+The results, which we have both stored respectively in the objects
+\texttt{pred1} and \texttt{pred2} can be used for a visualization with
+\texttt{ggplot()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred2}\SpecialCharTok{$}\NormalTok{plotdata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ trstplt, }
+                                  \AttributeTok{y =}\NormalTok{ mean,}
+                                  \AttributeTok{ymin =}\NormalTok{ lower, }\AttributeTok{ymax =}\NormalTok{ upper)) }\SpecialCharTok{+}
+  \CommentTok{\# this gives us the confidence intervals}
+  \FunctionTok{geom\_ribbon}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# taking the mean of the values}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \CommentTok{\# here we display the predicted probabilities for all parties in one plot}
+  \FunctionTok{facet\_wrap}\NormalTok{(.}\SpecialCharTok{\textasciitilde{}}\NormalTok{ vote\_de, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# putting the values of the y{-}axis in percentages}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{(}\AttributeTok{accuracy =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \CommentTok{\# the x{-}axis follows the 0{-}10 scale of the predictor}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{+}
+  \CommentTok{\# specifying the ggplot theme}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \CommentTok{\# lastly you only need to label your axes; Always label your axes ;)}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Predicted probabilities"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Trust in Politicians"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session3/session3_files/figure-pdf/unnamed-chunk-12-1.pdf}
+
+}
+
+\end{figure}
+
+Here we can see very well by how many percent the likelihood increases
+or decreases for each party given that our independent variable, our
+predictor, of trust in politicians increases (increasing values mean
+more trust in politicians).
+
+We can also visualize our predicted probabilities in one single plot. I
+made the effort of coordinating the colors so that they would be
+displayed in the colors of the parties. If you want to have a color
+selector to get the HEX color codes, you can click on this link:
+\href{https://g.co/kgs/6MxyCy}{https://g.co/kgs/6MxyCy} (it will say
+\emph{Google Farbwähler}, which is not a scam but German\ldots).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred2}\SpecialCharTok{$}\NormalTok{plotdata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ trstplt, }\AttributeTok{y =}\NormalTok{ mean, }
+                                  \AttributeTok{color =} \FunctionTok{as.factor}\NormalTok{(vote\_de))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ lower, }\AttributeTok{ymax =}\NormalTok{ upper), }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{(}\AttributeTok{accuracy =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#03c2fc"}\NormalTok{, }\StringTok{"\#000000"}\NormalTok{, }\StringTok{"\#f26dd5"}\NormalTok{, }\StringTok{"\#FFFF00"}\NormalTok{, }
+                                \StringTok{"\#00e81b"}\NormalTok{, }\StringTok{"\#fa0000"}\NormalTok{),}
+                     \AttributeTok{name =} \StringTok{"Vote"}\NormalTok{,}
+                     \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"AFD"}\NormalTok{, }\StringTok{"CDU"}\NormalTok{, }\StringTok{"DIE LINKE"}\NormalTok{, }\StringTok{"FDP"}\NormalTok{, }
+                                \StringTok{"GRUENE"}\NormalTok{, }\StringTok{"SPD"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Predicted Probability Vote"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Trust in Politicians"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session3/session3_files/figure-pdf/unnamed-chunk-13-1.pdf}
+
+}
+
+\end{figure}
+
+This here is the plot for our first hypothesis for which we have stored
+the predicted probabilities in the object \texttt{pred1}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred1}\SpecialCharTok{$}\NormalTok{plotdata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ imueclt, }
+                                  \AttributeTok{y =}\NormalTok{ mean,}
+                                  \AttributeTok{ymin =}\NormalTok{ lower, }\AttributeTok{ymax =}\NormalTok{ upper)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_ribbon}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# Confidence intervals}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} \CommentTok{\# Mean}
+  \FunctionTok{facet\_wrap}\NormalTok{(.}\SpecialCharTok{\textasciitilde{}}\NormalTok{ vote\_de, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{(}\AttributeTok{accuracy =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \CommentTok{\# \% labels}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Predicted probabilities"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Positivity towards Immigrants"}\NormalTok{) }\CommentTok{\# Always label your axes ;)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session3/session3_files/figure-pdf/unnamed-chunk-14-1.pdf}
+
+}
+
+\end{figure}
+
+And here the code which puts all the predicted probabilities in one
+plot:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pred1}\SpecialCharTok{$}\NormalTok{plotdata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ imueclt, }\AttributeTok{y =}\NormalTok{ mean, }
+                                  \AttributeTok{color=}\FunctionTok{as.factor}\NormalTok{(vote\_de))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ lower, }
+                  \AttributeTok{ymax =}\NormalTok{ upper),}
+              \AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{(}\AttributeTok{accuracy =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#03c2fc"}\NormalTok{, }\StringTok{"\#000000"}\NormalTok{, }\StringTok{"\#f26dd5"}\NormalTok{, }\StringTok{"\#FFFF00"}\NormalTok{, }
+                                \StringTok{"\#00e81b"}\NormalTok{, }\StringTok{"\#fa0000"}\NormalTok{),}
+                     \AttributeTok{name =} \StringTok{"Vote"}\NormalTok{,}
+                     \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"AFD"}\NormalTok{, }\StringTok{"CDU"}\NormalTok{, }\StringTok{"DIE LINKE"}\NormalTok{, }\StringTok{"FDP"}\NormalTok{, }
+                                \StringTok{"GRUENE"}\NormalTok{, }\StringTok{"SPD"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Predicted Probability Vote"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Positivity towards Immigration"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{session3/session3_files/figure-pdf/unnamed-chunk-15-1.pdf}
+
+}
+
+\end{figure}
+
+\hypertarget{diagnostics-of-multinomial-models}{%
+\chapter{Diagnostics of Multinomial
+Models}\label{diagnostics-of-multinomial-models}}
+
+I have talked about diagnostics of models before. This will be the first
+time that we touch upon that. Usually this is a step which you should
+take between the building and the interpretation of your model.
+
+The estimates of your model change depending on several influences. The
+number of predictors, the scaling of your predictors, the scaling of
+your dependent variable or the coding of your dependent variable. All
+these kind of things (and many more) will have an effect on your model's
+results. We need to be sure that we have a good amount of variables to
+account for enough variance. But we also need to make sure that we do
+not overfit our model, meaning that we put in too many predictors for
+example.
+
+We are firstly concerned with the goodness of fit of our model. In a
+linear model using the OLS method, we have looked at the \(R^2\) and
+adjusted \(R^2\) of the models. This tells us something about how much
+variance of the DV is explained by our IVs. Unfortunately, this measure
+does not exist for logits or multinomial models. But the good news is
+that we can calculate something that is called McFadden's Pseudo
+\(R^2\). It is interpreted in a similar way as you would do it with a
+normal \(R^2\) meaning that anything ranging between 0.2 and 0.4 is a
+result that should make us happy.
+
+This is how you do this in R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# you obviously need to install the package first}
+\FunctionTok{library}\NormalTok{(pscl)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Classes and Methods for R developed in the
+Political Science Computational Laboratory
+Department of Political Science
+Stanford University
+Simon Jackman
+hurdle and zeroinfl functions by Achim Zeileis
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pR2}\NormalTok{(model\_de)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+fitting null model for pseudo-r2
+# weights:  12 (5 variable)
+initial  value 2512.046776 
+iter  10 value 2158.240962
+iter  10 value 2158.240953
+iter  10 value 2158.240953
+final  value 2158.240953 
+converged
+\end{verbatim}
+
+\begin{verbatim}
+          llh       llhNull            G2      McFadden          r2ML 
+-1925.8149021 -2158.2409526   464.8521011     0.1076924     0.2821995 
+         r2CU 
+    0.2958110 
+\end{verbatim}
+
+\hypertarget{hetereoskedasticity-and-multicollinearity}{%
+\chapter{Hetereoskedasticity and
+Multicollinearity}\label{hetereoskedasticity-and-multicollinearity}}
+
+Then there are issues of scary words like \emph{multicollinearity} or
+\emph{heteroskedasticity} (oftentimes also refered to as
+``heteroske-something''). These two things describe two phenomena that
+can skew our estimations and, in the worst case scenario, will lead to
+wrong inferences. Therefore, we must check for them in all different
+kinds of models, be it a simple model using the OLS method, or a
+logistic regression or a multinomial regression. There are ways to test
+for potential problems that might arise and also ways to work our way
+around them if ever we encounter them.
+
+\hypertarget{multicollinearity-and-how-to-eliminate-it}{%
+\subsection{Multicollinearity and how to eliminate
+it}\label{multicollinearity-and-how-to-eliminate-it}}
+
+For now, we will only look at the potential issue of multicollinearity.
+It occurs when your independent variables are correlated among each
+other. This means that they vary very similarly in their values and
+measure either similar things or measure things the same way. The higher
+the multicollinearity within your model, the less reliable are your
+statistical inferences.
+
+We can detect the amount and measure of (multi)collinearity by
+calculating the \emph{Variance Inflation Factor} (VIF). It measures the
+amount of correlation between our predictors. The VIF should be below
+10. If it is below 0.2, this is a potential problem. Anything below 0.1
+should have us really worried. To do this in R, we use the
+\texttt{vif()} function of the \texttt{car} package. However, it does
+not work on the object of a multinomial model. Thus, we cheat our way
+around it and build a GLM model (\texttt{glm()}) in which we set our DV
+as factors and pretend that they are binomially distributed. This way, R
+sort of manually calculates the individual logistic regressions
+according to a baseline and we can calculate the VIF for the IVs
+individually.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model\_vif }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(vote\_de) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ imueclt  }\SpecialCharTok{+}\NormalTok{ stflife }\SpecialCharTok{+}\NormalTok{ trstplt }\SpecialCharTok{+}\NormalTok{ blgetmg }\SpecialCharTok{+} 
+\NormalTok{                   gndr }\SpecialCharTok{+}\NormalTok{ yrbrn }\SpecialCharTok{+}\NormalTok{ eduyrs }\SpecialCharTok{+}\NormalTok{ hinctnta,}
+                 \AttributeTok{data =}\NormalTok{ ess\_clean,}
+                 \AttributeTok{family =} \FunctionTok{binomial}\NormalTok{())}
+
+\NormalTok{car}\SpecialCharTok{::}\FunctionTok{vif}\NormalTok{(model\_vif)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ imueclt  stflife  trstplt  blgetmg     gndr    yrbrn   eduyrs hinctnta 
+1.350982 1.141501 1.274526 1.013258 1.037425 1.112390 1.260009 1.202217 
+\end{verbatim}
+
+Based on the results, we can see that our variance is not inflated since
+all values are below 10. That is great news! A VIF of 1 means that there
+is no correlation within our predictors, a VIF between 1 and 5 (which is
+quite normal) indicates slight correlation, and a VIF betwen 5 and 10
+shows a strong correlation.
+
+If, however, you should encounter issues of multicollinearity, you
+should test the VIFs for different versions of your model by starting to
+drop the IV with the highest VIF and see how that affects your VIFs
+overall. Or you check the variables which have high values, see if
+theoretically speaking they measure similar things, and combine them
+into a single measure.
+
+It is important to do this step in order to test the validity and
+reliability of our models!
+
+\hypertarget{goodness-of-fits-and-its-other-measures}{%
+\chapter{Goodness of Fits and its other
+measures}\label{goodness-of-fits-and-its-other-measures}}
+
+You have seen me use the term goodness of fit before and that this
+becomes very important in quantitative research when you try to model
+statistical relationships. Until now, we have always only modeled one
+model and then interpreted its coefficients and model values. We have
+seen the \(R^2\) and adjusted \(R^2\) and we have mostly seen bad OLS
+models which showed very low values in both these measures. However,
+this measure does not always exist for generalized linear models. Thus,
+statisticians have come up with other ways to compare models and their
+\emph{goodness of fit}. As a rule of thumb, we should always favor
+models which explain as much as possible by not making too many (strong)
+assumptions and overfitting our predictors, e.g.~adding too many in one
+regression etc. In one of your introduction to (political) science
+classes, you might have heard of Ockham's
+razor\footnote{Feel free to google this concept. It is not essential but makes for a good analogy to goodness of fit of statistical models.};
+this is the same idea but for statistical models.
+
+Goodness of fit in our case refers to how well the model which we have
+constructed, fits the set of our made observations. Thus, goodness of
+fit somewhat measures the discrepancy between our observed and expected
+values given our model. If we do not have an adjusted \(R^2\), we need
+to use other information criteria to determine which model fits best our
+data. There is quite an abundance of criteria which come to mind. Some
+of them are related to specific kinds of statistical models, whereas
+some are more general. The two which I would like to mention here are
+the \textbf{AIC} and the \textbf{BIC}.
+
+\hypertarget{aic-akaike-information-criterion}{%
+\paragraph{AIC (Akaike Information
+Criterion)}\label{aic-akaike-information-criterion}}
+
+Don't be like me and think for years AIC was a bad abbreviation of
+Akaike. It actually stands for \textbf{A}kaike \textbf{I}nformation
+\textbf{C}riterion. It is calculated based on the number of predictors
+of our model and how well it reproduces our data (the likelihood
+estimation). If you go back to our multinomial regressions above, you
+can see that the the last line of our table shows the AIC for this
+model. Individually, this information criterion is meaningless. It
+becomes important when we compare it to an AIC of a similar model and
+check which one indicates a better fit.
+
+What would a similar model look like? Well, if we dropped one of our IVs
+for example, we would alter the model a bit but keep its global
+structure. In that case, we would generate a second but different AIC.
+Comparing the AIC then tells us something about which model (meaning
+which composition of model) indicates a better fit.
+
+What is a better AIC? The \textbf{lower} AIC indicates that the model
+fits our data better than the model with the higher AIC. This is simply
+a mathematical measure. Stand-alone values of the AIC do not tell us
+much. They need to be considered in comparison to other values.
+
+\hypertarget{bic-bayesian-information-criterion}{%
+\paragraph{BIC (Bayesian Information
+Criterion)}\label{bic-bayesian-information-criterion}}
+
+I have a strong fascination for Bayesian
+Statistics\footnote{The second school of conducting statistics. What we are doing is called \emph{frequentist} statistics}
+and will include them wherever I can. Luckily, the BIC is very common
+and is to the AIC what the adjusted \(R^2\) is to the \(R^2\). This
+means that it is a ``stricter'' measure of goodness of fit than the AIC.
+It is quite similar to the AIC but differs in that it penalizes you for
+adding ``less useful'' variables to your model (\emph{overfitting} or
+overcomplexifing your model). Thus, similarly to the AIC, we should also
+favor the \textbf{lower} BIC.
+
+
+
+\end{document}
